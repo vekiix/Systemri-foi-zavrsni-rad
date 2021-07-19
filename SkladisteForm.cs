@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Systemri
 {
-    public partial class Form1 : Form
+    public partial class SkladisteForm : Form
     {
-        public Form1()
+        public SkladisteForm()
         {
             InitializeComponent();
         }
