@@ -37,10 +37,10 @@ namespace Systemri
             this.buttonSkladiste = new System.Windows.Forms.Button();
             this.buttonPocetnaStranica = new System.Windows.Forms.Button();
             this.panelKorisnik = new System.Windows.Forms.Panel();
-            this.panelForma = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelUsername = new System.Windows.Forms.Label();
             this.labelVrstaKorisnika = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelForma = new System.Windows.Forms.Panel();
             this.panelNavigacija.SuspendLayout();
             this.panelKorisnik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,7 +89,7 @@ namespace Systemri
             this.buttonUpravljanjeKorisnicima.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonUpravljanjeKorisnicima.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpravljanjeKorisnicima.Image")));
             this.buttonUpravljanjeKorisnicima.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpravljanjeKorisnicima.Location = new System.Drawing.Point(0, 320);
+            this.buttonUpravljanjeKorisnicima.Location = new System.Drawing.Point(0, 314);
             this.buttonUpravljanjeKorisnicima.Name = "buttonUpravljanjeKorisnicima";
             this.buttonUpravljanjeKorisnicima.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonUpravljanjeKorisnicima.Size = new System.Drawing.Size(220, 60);
@@ -109,7 +109,7 @@ namespace Systemri
             this.buttonNovaTransakcija.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonNovaTransakcija.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovaTransakcija.Image")));
             this.buttonNovaTransakcija.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNovaTransakcija.Location = new System.Drawing.Point(0, 260);
+            this.buttonNovaTransakcija.Location = new System.Drawing.Point(0, 254);
             this.buttonNovaTransakcija.Name = "buttonNovaTransakcija";
             this.buttonNovaTransakcija.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonNovaTransakcija.Size = new System.Drawing.Size(220, 60);
@@ -129,7 +129,7 @@ namespace Systemri
             this.buttonSkladiste.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonSkladiste.Image = ((System.Drawing.Image)(resources.GetObject("buttonSkladiste.Image")));
             this.buttonSkladiste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSkladiste.Location = new System.Drawing.Point(0, 200);
+            this.buttonSkladiste.Location = new System.Drawing.Point(0, 194);
             this.buttonSkladiste.Name = "buttonSkladiste";
             this.buttonSkladiste.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonSkladiste.Size = new System.Drawing.Size(220, 60);
@@ -149,7 +149,7 @@ namespace Systemri
             this.buttonPocetnaStranica.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonPocetnaStranica.Image = ((System.Drawing.Image)(resources.GetObject("buttonPocetnaStranica.Image")));
             this.buttonPocetnaStranica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPocetnaStranica.Location = new System.Drawing.Point(0, 140);
+            this.buttonPocetnaStranica.Location = new System.Drawing.Point(0, 134);
             this.buttonPocetnaStranica.Name = "buttonPocetnaStranica";
             this.buttonPocetnaStranica.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonPocetnaStranica.Size = new System.Drawing.Size(220, 60);
@@ -169,8 +169,44 @@ namespace Systemri
             this.panelKorisnik.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelKorisnik.Location = new System.Drawing.Point(0, 0);
             this.panelKorisnik.Name = "panelKorisnik";
-            this.panelKorisnik.Size = new System.Drawing.Size(220, 140);
+            this.panelKorisnik.Size = new System.Drawing.Size(220, 134);
             this.panelKorisnik.TabIndex = 0;
+            // 
+            // labelVrstaKorisnika
+            // 
+            this.labelVrstaKorisnika.AutoSize = true;
+            this.labelVrstaKorisnika.Font = new System.Drawing.Font("Nirmala UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVrstaKorisnika.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.labelVrstaKorisnika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelVrstaKorisnika.Location = new System.Drawing.Point(75, 103);
+            this.labelVrstaKorisnika.Name = "labelVrstaKorisnika";
+            this.labelVrstaKorisnika.Size = new System.Drawing.Size(70, 12);
+            this.labelVrstaKorisnika.TabIndex = 2;
+            this.labelVrstaKorisnika.Text = "Administrator";
+            this.labelVrstaKorisnika.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.Color.White;
+            this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelUsername.Location = new System.Drawing.Point(78, 76);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(64, 15);
+            this.labelUsername.TabIndex = 0;
+            this.labelUsername.Text = "Username";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(51, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(118, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelForma
             // 
@@ -179,43 +215,6 @@ namespace Systemri
             this.panelForma.Name = "panelForma";
             this.panelForma.Size = new System.Drawing.Size(1044, 681);
             this.panelForma.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(65, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelUsername
-            // 
-            this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.ForeColor = System.Drawing.Color.White;
-            this.labelUsername.Image = ((System.Drawing.Image)(resources.GetObject("labelUsername.Image")));
-            this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelUsername.Location = new System.Drawing.Point(65, 76);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(91, 15);
-            this.labelUsername.TabIndex = 0;
-            this.labelUsername.Text = "         Username";
-            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelVrstaKorisnika
-            // 
-            this.labelVrstaKorisnika.AutoSize = true;
-            this.labelVrstaKorisnika.Font = new System.Drawing.Font("Nirmala UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVrstaKorisnika.ForeColor = System.Drawing.Color.White;
-            this.labelVrstaKorisnika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelVrstaKorisnika.Location = new System.Drawing.Point(75, 105);
-            this.labelVrstaKorisnika.Name = "labelVrstaKorisnika";
-            this.labelVrstaKorisnika.Size = new System.Drawing.Size(70, 12);
-            this.labelVrstaKorisnika.TabIndex = 2;
-            this.labelVrstaKorisnika.Text = "Administrator";
-            this.labelVrstaKorisnika.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GlavnaForma
             // 

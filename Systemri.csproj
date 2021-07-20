@@ -46,31 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorPocetnaStranicaForm.cs">
+    <Compile Include="Forme\AdministratorPocetnaStranicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorPocetnaStranicaForm.Designer.cs">
+    <Compile Include="Forme\AdministratorPocetnaStranicaForm.Designer.cs">
       <DependentUpon>AdministratorPocetnaStranicaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlavnaForma.cs">
+    <Compile Include="Forme\GlavnaForma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GlavnaForma.Designer.cs">
+    <Compile Include="Forme\GlavnaForma.Designer.cs">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Klase\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SkladisteForm.cs">
+    <Compile Include="Forme\SkladisteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SkladisteForm.Designer.cs">
+    <Compile Include="Forme\SkladisteForm.Designer.cs">
       <DependentUpon>SkladisteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpravljanjeGlavnomFormom.cs" />
-    <EmbeddedResource Include="AdministratorPocetnaStranicaForm.resx">
+    <Compile Include="Forme\NovaTransakcijaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\NovaTransakcijaForm.Designer.cs">
+      <DependentUpon>NovaTransakcijaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klase\UpravljanjeGlavnomFormom.cs" />
+    <Compile Include="Forme\UpravljanjeKorisnicimaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UpravljanjeKorisnicimaForm.Designer.cs">
+      <DependentUpon>UpravljanjeKorisnicimaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forme\AdministratorPocetnaStranicaForm.resx">
       <DependentUpon>AdministratorPocetnaStranicaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GlavnaForma.resx">
+    <EmbeddedResource Include="Forme\GlavnaForma.resx">
       <DependentUpon>GlavnaForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -82,8 +94,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SkladisteForm.resx">
+    <EmbeddedResource Include="Forme\SkladisteForm.resx">
       <DependentUpon>SkladisteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\NovaTransakcijaForm.resx">
+      <DependentUpon>NovaTransakcijaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UpravljanjeKorisnicimaForm.resx">
+      <DependentUpon>UpravljanjeKorisnicimaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -98,8 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StatičneKlase\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

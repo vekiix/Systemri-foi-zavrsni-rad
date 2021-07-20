@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Systemri
 {
-    public partial class SkladisteForm : Form
+    public partial class NovaTransakcijaForm : Form
     {
-        public SkladisteForm()
+        public NovaTransakcijaForm()
         {
             InitializeComponent();
+            panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73), -0.1);
         }
     }
 }

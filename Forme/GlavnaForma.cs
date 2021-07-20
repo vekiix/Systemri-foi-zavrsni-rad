@@ -49,17 +49,17 @@ namespace Systemri
 
         private void buttonSkladiste_Click(object sender, EventArgs e)
         {
-            OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender);
+            OtvoriFormu(new SkladisteForm(), sender);
         }
 
         private void buttonNovaTransakcija_Click(object sender, EventArgs e)
         {
-            OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender);
+            OtvoriFormu(new NovaTransakcijaForm(), sender);
         }
 
         private void buttonUpravljanjeKorisnicima_Click(object sender, EventArgs e)
         {
-            OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender);
+            OtvoriFormu(new UpravljanjeKorisnicimaForm(), sender);
         }
 
 
