@@ -17,5 +17,10 @@ namespace Systemri
             InitializeComponent();
             panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73), -0.1);
         }
+
+        private void textBoxPretrazivanje_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBoxPretrazivanje.Text = "";
+        }
     }
 }

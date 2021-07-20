@@ -136,11 +136,12 @@ namespace Systemri
             // 
             // textBoxPretrazivanje
             // 
+            this.textBoxPretrazivanje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPretrazivanje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.textBoxPretrazivanje.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPretrazivanje.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPretrazivanje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBoxPretrazivanje.Location = new System.Drawing.Point(30, 224);
+            this.textBoxPretrazivanje.Location = new System.Drawing.Point(658, 250);
             this.textBoxPretrazivanje.Multiline = true;
             this.textBoxPretrazivanje.Name = "textBoxPretrazivanje";
             this.textBoxPretrazivanje.Size = new System.Drawing.Size(353, 20);

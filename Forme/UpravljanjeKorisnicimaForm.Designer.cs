@@ -56,12 +56,13 @@ namespace Systemri
             this.textBoxPretrazivanje.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPretrazivanje.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPretrazivanje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBoxPretrazivanje.Location = new System.Drawing.Point(580, 66);
+            this.textBoxPretrazivanje.Location = new System.Drawing.Point(580, 74);
             this.textBoxPretrazivanje.Multiline = true;
             this.textBoxPretrazivanje.Name = "textBoxPretrazivanje";
             this.textBoxPretrazivanje.Size = new System.Drawing.Size(427, 20);
             this.textBoxPretrazivanje.TabIndex = 16;
             this.textBoxPretrazivanje.Text = "Pretrazite korisnika po imenu...";
+            this.textBoxPretrazivanje.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxPretrazivanje_MouseDown);
             // 
             // dataGridViewKorisnici
             // 
@@ -69,9 +70,9 @@ namespace Systemri
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewKorisnici.Location = new System.Drawing.Point(26, 111);
+            this.dataGridViewKorisnici.Location = new System.Drawing.Point(26, 100);
             this.dataGridViewKorisnici.Name = "dataGridViewKorisnici";
-            this.dataGridViewKorisnici.Size = new System.Drawing.Size(981, 457);
+            this.dataGridViewKorisnici.Size = new System.Drawing.Size(981, 468);
             this.dataGridViewKorisnici.TabIndex = 18;
             // 
             // button1
@@ -120,7 +121,7 @@ namespace Systemri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1044, 642);
             this.Controls.Add(this.buttonDodaj);
             this.Controls.Add(this.button1);

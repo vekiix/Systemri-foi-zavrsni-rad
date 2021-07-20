@@ -17,6 +17,9 @@ namespace Systemri
             InitializeComponent();
         }
 
-
+        private void textBoxPretrazivanje_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBoxPretrazivanje.Text = "";
+        }
     }
 }

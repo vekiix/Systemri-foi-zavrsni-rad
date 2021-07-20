@@ -19,6 +19,7 @@ namespace Systemri
         public GlavnaForma()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             trenutnaTipka = buttonPocetnaStranica;
             OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);
         }

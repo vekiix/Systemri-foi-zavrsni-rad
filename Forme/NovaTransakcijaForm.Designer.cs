@@ -51,12 +51,13 @@ namespace Systemri
             this.textBoxPretrazivanje.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPretrazivanje.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPretrazivanje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBoxPretrazivanje.Location = new System.Drawing.Point(474, 58);
+            this.textBoxPretrazivanje.Location = new System.Drawing.Point(474, 74);
             this.textBoxPretrazivanje.Multiline = true;
             this.textBoxPretrazivanje.Name = "textBoxPretrazivanje";
             this.textBoxPretrazivanje.Size = new System.Drawing.Size(353, 20);
             this.textBoxPretrazivanje.TabIndex = 13;
             this.textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
+            this.textBoxPretrazivanje.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxPretrazivanje_MouseDown);
             // 
             // label1
             // 
