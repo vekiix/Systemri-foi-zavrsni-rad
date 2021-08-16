@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06a67266d89c4e4cafcad016d37ce601" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="SystemriDBModel.Dobavljac" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Kategorija_Proizvoda" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Korisnik" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Mjerna_Jedinica" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Podruznica" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Poduzece" Width="1.5" PointX="1.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Proizvod" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Proizvodac" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Racun" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Stavka" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemriDBModel.Uloga" Width="1.5" PointX="1.5" PointY="25.875" IsExpanded="true" />
+        <AssociationConnector Association="SystemriDBModel.FK_Proizvod_Dobavljac" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Proizvod_Kategorija_Proizvoda1" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Korisnik_Podruznica" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Korisnik_Uloga" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Racun_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Proizvod_Mjerna_Jedinica" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Podruznica_Poduzece" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Proizvod_Proizvodac" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Stavka_Proizvod" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Stavka_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemriDBModel.FK_Podruznica_Podruznica" />
+        <AssociationConnector Association="SystemriDBModel.FK_Proizvod_Podruznica" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

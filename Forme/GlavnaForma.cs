@@ -21,6 +21,10 @@ namespace Systemri
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             trenutnaTipka = buttonPocetnaStranica;
+            UpravljanjeGlavnomFormom.PromijeniTextLabele(labelUsername, PrijavljeniKorisnik.VratiKorIme());
+            UpravljanjeGlavnomFormom.PromijeniTextLabele(labelVrstaKorisnika, PrijavljeniKorisnik.VratiUlogu());
+            UpravljanjeGlavnomFormom.PromijeniTextLabele(labelPoduzece, PrijavljeniKorisnik.VratiImePoduzeca());
+            UpravljanjeGlavnomFormom.PromijeniTextLabele(labelPodruznica,"Broj podruznice: " + PrijavljeniKorisnik.VratiIDPodruznice().ToString());
             OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);
         }
 
@@ -63,6 +67,9 @@ namespace Systemri
             OtvoriFormu(new UpravljanjeKorisnicimaForm(), sender);
         }
 
-
+        private void buttonOdjava_Click(object sender, EventArgs e)
+        {      
+            this.Close();          
+        }
     }
 }

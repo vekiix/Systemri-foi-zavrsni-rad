@@ -16,7 +16,7 @@ namespace Systemri
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GlavnaForma());
+            Application.Run(new Forme.LogInForma());
         }
     }
 }

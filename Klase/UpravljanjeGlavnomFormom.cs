@@ -65,6 +65,11 @@ namespace Systemri
             childForm.BringToFront();
             childForm.Show();
         }
+
+        public static void PromijeniTextLabele(Label label, string text) 
+        {
+            label.Text = text;
+        }
     }
 }
 
