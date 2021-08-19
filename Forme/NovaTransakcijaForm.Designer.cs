@@ -31,17 +31,17 @@ namespace Systemri
         {
             this.textBoxPretrazivanje = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewProizvodi = new System.Windows.Forms.DataGridView();
             this.buttonObrisi = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridViewRacun = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panelStavke = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).BeginInit();
+            this.dataGridViewRacun = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProizvodi = new System.Windows.Forms.DataGridView();
             this.panelStavke.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPretrazivanje
@@ -57,7 +57,8 @@ namespace Systemri
             this.textBoxPretrazivanje.Size = new System.Drawing.Size(353, 20);
             this.textBoxPretrazivanje.TabIndex = 13;
             this.textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
-            this.textBoxPretrazivanje.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxPretrazivanje_MouseDown);
+            this.textBoxPretrazivanje.Enter += new System.EventHandler(this.textBoxPretrazivanje_Enter);
+            this.textBoxPretrazivanje.Leave += new System.EventHandler(this.textBoxPretrazivanje_Leave);
             // 
             // label1
             // 
@@ -69,16 +70,6 @@ namespace Systemri
             this.label1.Size = new System.Drawing.Size(241, 32);
             this.label1.TabIndex = 14;
             this.label1.Text = "Nova transakcija";
-            // 
-            // dataGridViewProizvodi
-            // 
-            this.dataGridViewProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProizvodi.Location = new System.Drawing.Point(26, 100);
-            this.dataGridViewProizvodi.Name = "dataGridViewProizvodi";
-            this.dataGridViewProizvodi.Size = new System.Drawing.Size(801, 291);
-            this.dataGridViewProizvodi.TabIndex = 15;
             // 
             // buttonObrisi
             // 
@@ -107,17 +98,6 @@ namespace Systemri
             this.button1.TabIndex = 18;
             this.button1.Text = "[F2] Dodaj više proizvoda na račun";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dataGridViewRacun
-            // 
-            this.dataGridViewRacun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewRacun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRacun.Location = new System.Drawing.Point(26, 14);
-            this.dataGridViewRacun.Name = "dataGridViewRacun";
-            this.dataGridViewRacun.Size = new System.Drawing.Size(801, 189);
-            this.dataGridViewRacun.TabIndex = 17;
             // 
             // button2
             // 
@@ -175,6 +155,27 @@ namespace Systemri
             this.panelStavke.Size = new System.Drawing.Size(1044, 227);
             this.panelStavke.TabIndex = 16;
             // 
+            // dataGridViewRacun
+            // 
+            this.dataGridViewRacun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRacun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRacun.Location = new System.Drawing.Point(26, 14);
+            this.dataGridViewRacun.Name = "dataGridViewRacun";
+            this.dataGridViewRacun.Size = new System.Drawing.Size(801, 189);
+            this.dataGridViewRacun.TabIndex = 17;
+            // 
+            // dataGridViewProizvodi
+            // 
+            this.dataGridViewProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProizvodi.Location = new System.Drawing.Point(26, 100);
+            this.dataGridViewProizvodi.Name = "dataGridViewProizvodi";
+            this.dataGridViewProizvodi.Size = new System.Drawing.Size(801, 291);
+            this.dataGridViewProizvodi.TabIndex = 15;
+            // 
             // NovaTransakcijaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,9 +190,9 @@ namespace Systemri
             this.Controls.Add(this.textBoxPretrazivanje);
             this.Name = "NovaTransakcijaForm";
             this.Text = "TransakcijaForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).EndInit();
             this.panelStavke.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,13 +202,13 @@ namespace Systemri
 
         private System.Windows.Forms.TextBox textBoxPretrazivanje;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewProizvodi;
         private System.Windows.Forms.Button buttonObrisi;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridViewRacun;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panelStavke;
+        private System.Windows.Forms.DataGridView dataGridViewRacun;
+        private System.Windows.Forms.DataGridView dataGridViewProizvodi;
     }
 }

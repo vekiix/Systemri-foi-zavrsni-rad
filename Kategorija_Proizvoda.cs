@@ -29,7 +29,7 @@ namespace Systemri
 
         public override string ToString()
         {
-            return ID_kategorije_proizvoda.ToString() + "-" + Naziv_kategorije_proizvoda;
+            return Naziv_kategorije_proizvoda;
         }
     }
 }

@@ -58,6 +58,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\DodajMjernuJedinicuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajMjernuJedinicuForm.Designer.cs">
+      <DependentUpon>DodajMjernuJedinicuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajPopustForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajPopustForm.Designer.cs">
+      <DependentUpon>DodajPopustForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajProizvodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajProizvodForm.Designer.cs">
+      <DependentUpon>DodajProizvodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajKategorijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajKategorijuForm.Designer.cs">
+      <DependentUpon>DodajKategorijuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\DodajProizvodacaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajProizvodacaForm.Designer.cs">
+      <DependentUpon>DodajProizvodacaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Klase\DBRepository.cs" />
     <Compile Include="Dobavljac.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
@@ -148,8 +178,23 @@
     <Compile Include="Uloga.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forme\DodajMjernuJedinicuForm.resx">
+      <DependentUpon>DodajMjernuJedinicuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajPopustForm.resx">
+      <DependentUpon>DodajPopustForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajProizvodForm.resx">
+      <DependentUpon>DodajProizvodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\AdministratorPocetnaStranicaForm.resx">
       <DependentUpon>AdministratorPocetnaStranicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajKategorijuForm.resx">
+      <DependentUpon>DodajKategorijuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\DodajProizvodacaForm.resx">
+      <DependentUpon>DodajProizvodacaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\GlavnaForma.resx">
       <DependentUpon>GlavnaForma.cs</DependentUpon>

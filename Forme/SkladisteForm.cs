@@ -21,11 +21,13 @@ namespace Systemri
 
         private void NapuniComboBoxove() 
         {
+            if (comboBoxKategorija.Items != null) comboBoxKategorija.Items.Clear();
             foreach (Kategorija_Proizvoda kategorija in DBRepository.DohvatiKategorijeProizvoda()) 
             {
-                comboBoxKategorija.Items.Add(kategorija.ToString());
+                comboBoxKategorija.Items.Add(kategorija);
             }
 
+            if (comboBoxSortiranje.Items != null) comboBoxSortiranje.Items.Clear();
             comboBoxSortiranje.Items.Add("Uzlazno po nazivu");
             comboBoxSortiranje.Items.Add("Silazno po nazivu");
             comboBoxSortiranje.Items.Add("Uzlazno po cijeni");
@@ -137,22 +139,16 @@ namespace Systemri
             }    
         }
 
-        private void comboBoxKategorija_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxKategorija.SelectedItem != default) 
-            {
-                OsvjeziDGV(UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.Text, ProvjeriCheckBoxove()));
-                textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
-            }
-            
-        }
-
         private void comboBoxSortiranje_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxKategorija.Text == "Odaberite kategoriju..." && checkBoxPopust.Checked == false 
-                && checkBoxPrikaz.Checked == false && textBoxPretrazivanje.Text == "Pretrazite proizvod po imenu...") 
+            if (comboBoxKategorija.Text == "Odaberite kategoriju..." && checkBoxPopust.Checked == false
+                && checkBoxPrikaz.Checked == false && textBoxPretrazivanje.Text == "Pretrazite proizvod po imenu...")
             {
                 OsvjeziDGV(DBRepository.DohvatiProizvode());
+            }
+            else if (comboBoxKategorija.SelectedItem as Kategorija_Proizvoda != null) 
+            {
+                OsvjeziDGV(UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.SelectedItem as Kategorija_Proizvoda, ProvjeriCheckBoxove()));
             }
         }
 
@@ -163,6 +159,7 @@ namespace Systemri
                 comboBoxKategorija.SelectedItem = default;
                 comboBoxKategorija.Text = "Odaberite kategoriju...";   
             }
+            textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             checkBoxPopust.Checked = false;
             checkBoxPrikaz.Checked = false;
             OsvjeziDGV(DBRepository.DohvatiProizvode());
@@ -228,6 +225,7 @@ namespace Systemri
             if (proizvod != null)
             {
                 DialogResult rezultat = MessageBox.Show("Jeste li sigurni da želite obrisati proizvod " + proizvod.Naziv_proizvoda + "?","Upozorenje o brisanju" ,MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                
                 if (rezultat == DialogResult.Yes) 
                 {
                     DBRepository.ObrisiProizvod(proizvod);
@@ -237,6 +235,54 @@ namespace Systemri
             else 
             {
                 MessageBox.Show("Niste odabrali proizvod!");
+            }
+        }
+
+        private void buttonDodaj_Click(object sender, EventArgs e)
+        {
+            DodajProizvodForm proizvodForm = new DodajProizvodForm();
+            proizvodForm.ShowDialog();
+            OsvjeziDGV(DBRepository.DohvatiProizvode());
+            NapuniComboBoxove();
+        }
+
+        private void buttonIzmijeniProizvod_Click(object sender, EventArgs e)
+        {
+            DodajProizvodForm form = new DodajProizvodForm(dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod);
+            form.ShowDialog();
+            OsvjeziDGV(DBRepository.DohvatiProizvode());
+        }
+
+        private void comboBoxKategorija_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKategorija.SelectedItem as Kategorija_Proizvoda != null)
+            {
+                OsvjeziDGV(UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.SelectedItem as Kategorija_Proizvoda, ProvjeriCheckBoxove()));
+            }
+        }
+
+        private void buttonPopust_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod != null)
+            {
+                if ((dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod).Popust == 0)
+                {
+                    Forme.DodajPopustForm form = new Forme.DodajPopustForm(dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod);
+                    form.ShowDialog();                 
+                }
+                else
+                {
+                    DialogResult rezultat = MessageBox.Show("Jeste li sigurni da zelite maknuti akciju sa proizvoda " + (dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod).Naziv_proizvoda, "Popust", MessageBoxButtons.YesNo);
+                    if (rezultat == DialogResult.Yes)
+                    {
+                        DBRepository.MakniPopust(dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod);                        
+                    }
+                }
+                OsvjeziDGV(DBRepository.DohvatiProizvode());
+            }
+            else 
+            {
+                MessageBox.Show("Morate odabrati proizvod!");
             }
         }
     }

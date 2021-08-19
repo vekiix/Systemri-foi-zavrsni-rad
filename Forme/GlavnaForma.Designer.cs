@@ -31,6 +31,7 @@ namespace Systemri
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlavnaForma));
             this.panelNavigacija = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.labelPodruznica = new System.Windows.Forms.Label();
             this.labelPoduzece = new System.Windows.Forms.Label();
             this.buttonOdjava = new System.Windows.Forms.Button();
@@ -43,11 +44,10 @@ namespace Systemri
             this.labelUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForma = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelNavigacija.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelKorisnik.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelNavigacija
@@ -66,12 +66,23 @@ namespace Systemri
             this.panelNavigacija.Size = new System.Drawing.Size(220, 681);
             this.panelNavigacija.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel1.Controls.Add(this.labelPodruznica);
+            this.panel1.Controls.Add(this.labelPoduzece);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 590);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 31);
+            this.panel1.TabIndex = 8;
+            // 
             // labelPodruznica
             // 
             this.labelPodruznica.Font = new System.Drawing.Font("Nirmala UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPodruznica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.labelPodruznica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelPodruznica.Location = new System.Drawing.Point(0, 30);
+            this.labelPodruznica.Location = new System.Drawing.Point(0, 15);
             this.labelPodruznica.Name = "labelPodruznica";
             this.labelPodruznica.Size = new System.Drawing.Size(220, 12);
             this.labelPodruznica.TabIndex = 7;
@@ -83,7 +94,7 @@ namespace Systemri
             this.labelPoduzece.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPoduzece.ForeColor = System.Drawing.Color.White;
             this.labelPoduzece.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelPoduzece.Location = new System.Drawing.Point(0, 10);
+            this.labelPoduzece.Location = new System.Drawing.Point(0, 0);
             this.labelPoduzece.Name = "labelPoduzece";
             this.labelPoduzece.Size = new System.Drawing.Size(220, 15);
             this.labelPoduzece.TabIndex = 6;
@@ -244,17 +255,6 @@ namespace Systemri
             this.panelForma.Size = new System.Drawing.Size(1044, 681);
             this.panelForma.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panel1.Controls.Add(this.labelPodruznica);
-            this.panel1.Controls.Add(this.labelPoduzece);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 567);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 54);
-            this.panel1.TabIndex = 8;
-            // 
             // GlavnaForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,9 +266,9 @@ namespace Systemri
             this.Name = "GlavnaForma";
             this.Text = "Systemri";
             this.panelNavigacija.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panelKorisnik.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

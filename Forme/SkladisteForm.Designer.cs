@@ -29,20 +29,21 @@ namespace Systemri
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxKategorija = new System.Windows.Forms.ComboBox();
             this.comboBoxSortiranje = new System.Windows.Forms.ComboBox();
             this.buttonObrisi = new System.Windows.Forms.Button();
             this.buttonDodaj = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonIzmijeniProizvod = new System.Windows.Forms.Button();
             this.textBoxPretrazivanje = new System.Windows.Forms.TextBox();
             this.dataGridViewProizvodi = new System.Windows.Forms.DataGridView();
             this.checkBoxPrikaz = new System.Windows.Forms.CheckBox();
             this.checkBoxPopust = new System.Windows.Forms.CheckBox();
             this.labelUkloniFiltere = new System.Windows.Forms.Label();
+            this.buttonPopust = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@ namespace Systemri
             this.comboBoxKategorija.Size = new System.Drawing.Size(353, 23);
             this.comboBoxKategorija.TabIndex = 3;
             this.comboBoxKategorija.Text = "Odaberite kategoriju...";
-            this.comboBoxKategorija.SelectedIndexChanged += new System.EventHandler(this.comboBoxKategorija_SelectedIndexChanged);
+            this.comboBoxKategorija.SelectedValueChanged += new System.EventHandler(this.comboBoxKategorija_SelectedValueChanged);
             // 
             // comboBoxSortiranje
             // 
@@ -92,7 +93,7 @@ namespace Systemri
             this.buttonObrisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonObrisi.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonObrisi.ForeColor = System.Drawing.Color.White;
-            this.buttonObrisi.Location = new System.Drawing.Point(699, 161);
+            this.buttonObrisi.Location = new System.Drawing.Point(699, 147);
             this.buttonObrisi.Name = "buttonObrisi";
             this.buttonObrisi.Size = new System.Drawing.Size(144, 37);
             this.buttonObrisi.TabIndex = 10;
@@ -113,20 +114,22 @@ namespace Systemri
             this.buttonDodaj.TabIndex = 9;
             this.buttonDodaj.Text = "Dodaj novi proizvod";
             this.buttonDodaj.UseVisualStyleBackColor = false;
+            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
             // 
-            // button1
+            // buttonIzmijeniProizvod
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(867, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 37);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Izmijeni proizvod";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonIzmijeniProizvod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonIzmijeniProizvod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.buttonIzmijeniProizvod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIzmijeniProizvod.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIzmijeniProizvod.ForeColor = System.Drawing.Color.White;
+            this.buttonIzmijeniProizvod.Location = new System.Drawing.Point(867, 147);
+            this.buttonIzmijeniProizvod.Name = "buttonIzmijeniProizvod";
+            this.buttonIzmijeniProizvod.Size = new System.Drawing.Size(144, 37);
+            this.buttonIzmijeniProizvod.TabIndex = 11;
+            this.buttonIzmijeniProizvod.Text = "Izmijeni proizvod";
+            this.buttonIzmijeniProizvod.UseVisualStyleBackColor = false;
+            this.buttonIzmijeniProizvod.Click += new System.EventHandler(this.buttonIzmijeniProizvod_Click);
             // 
             // textBoxPretrazivanje
             // 
@@ -154,33 +157,33 @@ namespace Systemri
             this.dataGridViewProizvodi.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dataGridViewProizvodi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProizvodi.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProizvodi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProizvodi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewProizvodi.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProizvodi.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProizvodi.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewProizvodi.Location = new System.Drawing.Point(30, 276);
             this.dataGridViewProizvodi.Name = "dataGridViewProizvodi";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProizvodi.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProizvodi.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewProizvodi.RowTemplate.Height = 30;
             this.dataGridViewProizvodi.Size = new System.Drawing.Size(981, 354);
             this.dataGridViewProizvodi.TabIndex = 5;
@@ -227,17 +230,33 @@ namespace Systemri
             this.labelUkloniFiltere.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelUkloniFiltere.Click += new System.EventHandler(this.labelPoduzece_Click);
             // 
+            // buttonPopust
+            // 
+            this.buttonPopust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPopust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.buttonPopust.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPopust.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPopust.ForeColor = System.Drawing.Color.White;
+            this.buttonPopust.Location = new System.Drawing.Point(699, 201);
+            this.buttonPopust.Name = "buttonPopust";
+            this.buttonPopust.Size = new System.Drawing.Size(312, 37);
+            this.buttonPopust.TabIndex = 16;
+            this.buttonPopust.Text = "Dodaj/Ukloni popust";
+            this.buttonPopust.UseVisualStyleBackColor = false;
+            this.buttonPopust.Click += new System.EventHandler(this.buttonPopust_Click);
+            // 
             // SkladisteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1044, 642);
+            this.Controls.Add(this.buttonPopust);
             this.Controls.Add(this.labelUkloniFiltere);
             this.Controls.Add(this.checkBoxPopust);
             this.Controls.Add(this.checkBoxPrikaz);
             this.Controls.Add(this.textBoxPretrazivanje);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonIzmijeniProizvod);
             this.Controls.Add(this.buttonObrisi);
             this.Controls.Add(this.buttonDodaj);
             this.Controls.Add(this.dataGridViewProizvodi);
@@ -259,11 +278,12 @@ namespace Systemri
         private System.Windows.Forms.ComboBox comboBoxSortiranje;
         private System.Windows.Forms.Button buttonObrisi;
         private System.Windows.Forms.Button buttonDodaj;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIzmijeniProizvod;
         private System.Windows.Forms.TextBox textBoxPretrazivanje;
         private System.Windows.Forms.DataGridView dataGridViewProizvodi;
         private System.Windows.Forms.CheckBox checkBoxPrikaz;
         private System.Windows.Forms.CheckBox checkBoxPopust;
         private System.Windows.Forms.Label labelUkloniFiltere;
+        private System.Windows.Forms.Button buttonPopust;
     }
 }

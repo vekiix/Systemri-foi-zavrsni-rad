@@ -35,6 +35,17 @@ namespace Systemri
             
         }
 
+        internal static void DodijeliPopust(int br, Proizvod proizvod)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Proizvods.Attach(proizvod);
+                proizvod.Popust = 1;
+                proizvod.Postotak_popusta =(float) br / 100;
+                db.SaveChanges();
+            }
+        }
+
         internal static string DohvatiImePoduzeca() 
         {
             using (var db = new SystemriDBEntities()) 
@@ -58,6 +69,42 @@ namespace Systemri
                 return (from p in db.Proizvods
                         where p.Kolicina_proizvoda <= 5 && p.Popust == 1 && p.Podruznica_ID == id
                         select p).ToList();
+            }
+        }
+
+        internal static void DodajKategorijuProizvoda(Kategorija_Proizvoda kategorija)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Kategorija_Proizvoda.Add(kategorija);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void DodajDobavljaca(Dobavljac dobavljac)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Dobavljacs.Add(dobavljac);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void DodajProizvodaca(Proizvodac proizvodac)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Proizvodacs.Add(proizvodac);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void DodajMjernuJedinicu(Mjerna_Jedinica jedinica)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Mjerna_Jedinica.Add(jedinica);
+                db.SaveChanges();
             }
         }
 
@@ -153,6 +200,109 @@ namespace Systemri
             {
                 db.Proizvods.Attach(proizvod);
                 db.Proizvods.Remove(proizvod);
+                db.SaveChanges();
+            }
+        }
+
+        internal static List<Mjerna_Jedinica> DohvatiMjerneJedinice()
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                return (from mj in db.Mjerna_Jedinica
+                        select mj).ToList();
+            }
+        }
+
+        internal static List<Proizvodac> DohvatiProizvodace()
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                return (from p in db.Proizvodacs
+                        select p).ToList();
+            }
+        }
+
+        internal static List<Dobavljac> DohvatiDobavljace()
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                return (from d in db.Dobavljacs
+                        select d).ToList();
+            }
+        }
+
+        internal static void ObrisiKategoriju(Kategorija_Proizvoda kategorija) 
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Kategorija_Proizvoda.Attach(kategorija);
+                db.Kategorija_Proizvoda.Remove(kategorija);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void DodajProizvod(Proizvod proizvod)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Proizvods.Add(proizvod);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void ObrisiMjernuJedinicu(Mjerna_Jedinica mjerna)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Mjerna_Jedinica.Attach(mjerna);
+                db.Mjerna_Jedinica.Remove(mjerna);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void ObrisiDobavljaca(Dobavljac dobavljac)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Dobavljacs.Attach(dobavljac);
+                db.Dobavljacs.Remove(dobavljac);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void ObrisiProizvodaca(Proizvodac proizvodac)
+        {
+            using (var db = new SystemriDBEntities())
+            {
+                db.Proizvodacs.Attach(proizvodac);
+                db.Proizvodacs.Remove(proizvodac);
+                db.SaveChanges();
+            }
+        }
+
+        internal static void AzurirajProizvod(Proizvod stariProizvod, Proizvod proizvod)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Proizvods.Attach(stariProizvod);
+                stariProizvod.Naziv_proizvoda = proizvod.Naziv_proizvoda;
+                stariProizvod.Kolicina_proizvoda = proizvod.Kolicina_proizvoda;
+                stariProizvod.Cijena_proizvoda = proizvod.Cijena_proizvoda;
+                stariProizvod.Kategorija_proizvoda_ID = proizvod.Kategorija_proizvoda_ID;
+                stariProizvod.Dobavljac_ID = proizvod.Dobavljac_ID;
+                stariProizvod.Proizvodac_ID = proizvod.Proizvodac_ID;
+                stariProizvod.Mjerna_jedinica_ID = proizvod.Mjerna_jedinica_ID;
+                db.SaveChanges();
+            }
+        }
+
+        internal static void MakniPopust(Proizvod proizvod) 
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Proizvods.Attach(proizvod);
+                proizvod.Popust = 0;
+                proizvod.Postotak_popusta = 0;
                 db.SaveChanges();
             }
         }
