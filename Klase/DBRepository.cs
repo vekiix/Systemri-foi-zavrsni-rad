@@ -222,6 +222,50 @@ namespace Systemri
             }
         }
 
+        internal static void NapraviRacun(List<Proizvod> racun)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                Racun noviRacun = new Racun();
+                DateTime datum = DateTime.Now;
+                noviRacun.Korisnik_ID = PrijavljeniKorisnik.VratiIDKorisnika();
+                noviRacun.Datum = datum.Date;
+                noviRacun.Vrijeme = datum.TimeOfDay;
+
+                db.Racuns.Add(noviRacun);
+                db.SaveChanges();
+
+                double ukupanIznos=0;
+                foreach (var item in racun) 
+                {
+                    Stavka stavka = new Stavka();
+                    stavka.Racun_ID = noviRacun.ID_racuna;
+                    stavka.Kolicina = item.Kolicina_proizvoda;
+                    stavka.Proizvod_ID = item.ID_proizvoda;
+                    
+
+                    Proizvod proizvod = db.Proizvods.FirstOrDefault(x => x.ID_proizvoda == item.ID_proizvoda);
+                    proizvod.Kolicina_proizvoda -= item.Kolicina_proizvoda;
+
+                    if (item.Popust == 0)
+                    {
+                        stavka.Ukupan_iznos = Math.Round(item.Cijena_proizvoda * item.Kolicina_proizvoda,2);
+                    }
+                    else 
+                    {
+                        stavka.Ukupan_iznos = Math.Round((double)((item.Cijena_proizvoda * (1- item.Postotak_popusta)) * item.Kolicina_proizvoda),2);
+                    }
+                    ukupanIznos += stavka.Ukupan_iznos;
+                    db.Stavkas.Add(stavka);   
+
+                }
+                db.Racuns.Attach(noviRacun);
+                noviRacun.Ukupan_iznos = Math.Round(ukupanIznos,2);
+                
+                db.SaveChanges();
+            }
+        }
+
         internal static List<Dobavljac> DohvatiDobavljace()
         {
             using (var db = new SystemriDBEntities())

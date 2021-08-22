@@ -24,6 +24,7 @@ namespace Systemri
         public System.DateTime Datum { get; set; }
         public System.TimeSpan Vrijeme { get; set; }
         public int Korisnik_ID { get; set; }
+        public Nullable<double> Ukupan_iznos { get; set; }
     
         public virtual Korisnik Korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

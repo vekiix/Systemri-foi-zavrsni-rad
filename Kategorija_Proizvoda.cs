@@ -26,10 +26,5 @@ namespace Systemri
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proizvod> Proizvods { get; set; }
-
-        public override string ToString()
-        {
-            return Naziv_kategorije_proizvoda;
-        }
     }
 }

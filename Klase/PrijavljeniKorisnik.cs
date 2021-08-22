@@ -81,5 +81,10 @@ namespace Systemri
             podruznica_ID = default(int);
             uloga_ID = default(int);
         }
+
+        internal static int VratiIDKorisnika()
+        {
+            return ID_korisnik;
+        }
     }
 }

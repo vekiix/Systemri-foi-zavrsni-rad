@@ -25,7 +25,7 @@ namespace Systemri
         public double Cijena_proizvoda { get; set; }
         public int Kolicina_proizvoda { get; set; }
         public short Popust { get; set; }
-        public double Postotak_popusta { get; set; }
+        public Nullable<double> Postotak_popusta { get; set; }
         public int Kategorija_proizvoda_ID { get; set; }
         public int Dobavljac_ID { get; set; }
         public int Proizvodac_ID { get; set; }

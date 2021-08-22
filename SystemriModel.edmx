@@ -75,7 +75,7 @@
           <Property Name="Cijena_proizvoda" Type="float" Nullable="false" />
           <Property Name="Kolicina_proizvoda" Type="int" Nullable="false" />
           <Property Name="Popust" Type="smallint" Nullable="false" />
-          <Property Name="Postotak_popusta" Type="float" Nullable="false" />
+          <Property Name="Postotak_popusta" Type="float" />
           <Property Name="Kategorija_proizvoda_ID" Type="int" Nullable="false" />
           <Property Name="Dobavljac_ID" Type="int" Nullable="false" />
           <Property Name="Proizvodac_ID" Type="int" Nullable="false" />
@@ -99,6 +99,7 @@
           <Property Name="Datum" Type="date" Nullable="false" />
           <Property Name="Vrijeme" Type="time" Precision="7" Nullable="false" />
           <Property Name="Korisnik_ID" Type="int" Nullable="false" />
+          <Property Name="Ukupan_iznos" Type="float" />
         </EntityType>
         <EntityType Name="Stavka">
           <Key>
@@ -226,18 +227,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Racun_Korisnik">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
-          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Korisnik">
-              <PropertyRef Name="ID_korisnik" />
-            </Principal>
-            <Dependent Role="Racun">
-              <PropertyRef Name="Korisnik_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Stavka_Proizvod">
           <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
           <End Role="Stavka" Type="Self.Stavka" Multiplicity="*" />
@@ -309,10 +298,6 @@
           <AssociationSet Name="FK_Proizvod_Proizvodac" Association="Self.FK_Proizvod_Proizvodac">
             <End Role="Proizvodac" EntitySet="Proizvodac" />
             <End Role="Proizvod" EntitySet="Proizvod" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Racun_Korisnik" Association="Self.FK_Racun_Korisnik">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="Racun" EntitySet="Racun" />
           </AssociationSet>
           <AssociationSet Name="FK_Stavka_Proizvod" Association="Self.FK_Stavka_Proizvod">
             <End Role="Proizvod" EntitySet="Proizvod" />
@@ -409,7 +394,7 @@
           <Property Name="Cijena_proizvoda" Type="Double" Nullable="false" />
           <Property Name="Kolicina_proizvoda" Type="Int32" Nullable="false" />
           <Property Name="Popust" Type="Int16" Nullable="false" />
-          <Property Name="Postotak_popusta" Type="Double" Nullable="false" />
+          <Property Name="Postotak_popusta" Type="Double" />
           <Property Name="Kategorija_proizvoda_ID" Type="Int32" Nullable="false" />
           <Property Name="Dobavljac_ID" Type="Int32" Nullable="false" />
           <Property Name="Proizvodac_ID" Type="Int32" Nullable="false" />
@@ -442,6 +427,7 @@
           <Property Name="Korisnik_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Korisnik" Relationship="Self.FK_Racun_Korisnik" FromRole="Racun" ToRole="Korisnik" />
           <NavigationProperty Name="Stavkas" Relationship="Self.FK_Stavka_Racun" FromRole="Racun" ToRole="Stavka" />
+          <Property Name="Ukupan_iznos" Type="Double" />
         </EntityType>
         <EntityType Name="Stavka">
           <Key>
@@ -772,6 +758,7 @@
           <EntitySetMapping Name="Racuns">
             <EntityTypeMapping TypeName="SystemriDBModel.Racun">
               <MappingFragment StoreEntitySet="Racun">
+                <ScalarProperty Name="Ukupan_iznos" ColumnName="Ukupan_iznos" />
                 <ScalarProperty Name="ID_racuna" ColumnName="ID_racuna" />
                 <ScalarProperty Name="Datum" ColumnName="Datum" />
                 <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />

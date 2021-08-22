@@ -15,8 +15,11 @@ namespace Systemri
         public SkladisteForm()
         {
             InitializeComponent();
-            OsvjeziDGV(DBRepository.DohvatiProizvode());
+            ((ISupportInitialize)dataGridViewProizvodi).BeginInit();
             NapuniComboBoxove();
+            ((ISupportInitialize)dataGridViewProizvodi).EndInit();
+            OsvjeziDGV(DBRepository.DohvatiProizvode());
+            
         }
 
         private void NapuniComboBoxove() 
@@ -37,7 +40,7 @@ namespace Systemri
         }
 
         private void OsvjeziDGV(List<Proizvod> proizvods) 
-        {
+        {             
             if (comboBoxSortiranje.SelectedItem != default) 
             {
                 switch (comboBoxSortiranje.SelectedItem.ToString())
@@ -51,9 +54,7 @@ namespace Systemri
                     default: break;
                 }
             }
-
             dataGridViewProizvodi.DataSource = proizvods;
-            
             dataGridViewProizvodi.Columns[0].Visible = false;
             dataGridViewProizvodi.Columns[1].HeaderText = "Naziv";
             dataGridViewProizvodi.Columns[2].HeaderText = "Cijena";
@@ -70,8 +71,7 @@ namespace Systemri
             dataGridViewProizvodi.Columns[13].Visible = false;
             dataGridViewProizvodi.Columns[14].Visible = false;
             dataGridViewProizvodi.Columns[15].Visible = false;
-            dataGridViewProizvodi.Columns[16].Visible = false;
-
+            dataGridViewProizvodi.Columns[16].Visible = false;    
         }
 
         private List<Proizvod> ProvjeriCheckBoxove() 
@@ -141,15 +141,7 @@ namespace Systemri
 
         private void comboBoxSortiranje_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxKategorija.Text == "Odaberite kategoriju..." && checkBoxPopust.Checked == false
-                && checkBoxPrikaz.Checked == false && textBoxPretrazivanje.Text == "Pretrazite proizvod po imenu...")
-            {
-                OsvjeziDGV(DBRepository.DohvatiProizvode());
-            }
-            else if (comboBoxKategorija.SelectedItem as Kategorija_Proizvoda != null) 
-            {
-                OsvjeziDGV(UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.SelectedItem as Kategorija_Proizvoda, ProvjeriCheckBoxove()));
-            }
+            
         }
 
         private void labelPoduzece_Click(object sender, EventArgs e)
@@ -221,9 +213,10 @@ namespace Systemri
 
         private void buttonObrisi_Click(object sender, EventArgs e)
         {
-            Proizvod proizvod = dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod;
-            if (proizvod != null)
+            
+            if (dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod != null)
             {
+                Proizvod proizvod = dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod;
                 DialogResult rezultat = MessageBox.Show("Jeste li sigurni da želite obrisati proizvod " + proizvod.Naziv_proizvoda + "?","Upozorenje o brisanju" ,MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 
                 if (rezultat == DialogResult.Yes) 
@@ -283,6 +276,19 @@ namespace Systemri
             else 
             {
                 MessageBox.Show("Morate odabrati proizvod!");
+            }
+        }
+
+        private void comboBoxSortiranje_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxKategorija.Text == "Odaberite kategoriju..." && checkBoxPopust.Checked == false
+                && checkBoxPrikaz.Checked == false && textBoxPretrazivanje.Text == "Pretrazite proizvod po imenu...")
+            {
+                OsvjeziDGV(DBRepository.DohvatiProizvode());
+            }
+            else if (comboBoxKategorija.SelectedItem as Kategorija_Proizvoda != null)
+            {
+                OsvjeziDGV(UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.SelectedItem as Kategorija_Proizvoda, ProvjeriCheckBoxove()));
             }
         }
     }
