@@ -59,9 +59,11 @@ namespace Systemri.Forme
             if (textBoxKratica.Text != "" && textBoxKratica.Text != "Unesite kraticu..."
                 && textBoxNaziv.Text != "" && textBoxNaziv.Text != "Unesite naziv...")
             {
-                Mjerna_Jedinica mjerna = new Mjerna_Jedinica();
-                mjerna.Naziv_mjerne_jedinice = textBoxNaziv.Text;
-                mjerna.ID_mjerne_jedinice = textBoxKratica.Text;
+                Mjerna_Jedinica mjerna = new Mjerna_Jedinica
+                {
+                    Naziv_mjerne_jedinice = textBoxNaziv.Text,
+                    ID_mjerne_jedinice = textBoxKratica.Text
+                };
                 DBRepository.DodajMjernuJedinicu(mjerna);
                 Close();
             }

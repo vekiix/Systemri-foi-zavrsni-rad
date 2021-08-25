@@ -15,7 +15,6 @@ namespace Systemri
         private Button trenutnaTipka;
         private Form trenutnaForma;
 
-
         public GlavnaForma()
         {
             InitializeComponent();

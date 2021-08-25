@@ -12,49 +12,34 @@ namespace Systemri
 {
     public partial class SkladisteForm : Form        
     {
+        private List<Dobavljac> dobavljaci;
+        private List<Proizvodac> proizvodaci;
+        private List<Mjerna_Jedinica> mjerneJedinice;
+        private List<Kategorija_Proizvoda> kategorije;
+
         public SkladisteForm()
         {
             InitializeComponent();
+            DohvatiListeZaFormatiranje();
+        }
+
+        private void DohvatiListeZaFormatiranje() 
+        {
+            if(dobavljaci != null)dobavljaci.Clear();
+            dobavljaci = DBRepository.DohvatiDobavljace();
+            if(proizvodaci != null) proizvodaci.Clear();
+            proizvodaci = DBRepository.DohvatiProizvodace();
+            if (mjerneJedinice != null) mjerneJedinice.Clear();
+            mjerneJedinice = DBRepository.DohvatiMjerneJedinice();
+            if(kategorije != null) kategorije.Clear();
+            kategorije = DBRepository.DohvatiKategorijeProizvoda();
+        }
+
+        private void SkladisteForm_Load(object sender, EventArgs e)
+        {
             ((ISupportInitialize)dataGridViewProizvodi).BeginInit();
             NapuniComboBoxove();
-            ((ISupportInitialize)dataGridViewProizvodi).EndInit();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
-            
-        }
-
-        private void NapuniComboBoxove() 
-        {
-            if (comboBoxKategorija.Items != null) comboBoxKategorija.Items.Clear();
-            foreach (Kategorija_Proizvoda kategorija in DBRepository.DohvatiKategorijeProizvoda()) 
-            {
-                comboBoxKategorija.Items.Add(kategorija);
-            }
-
-            if (comboBoxSortiranje.Items != null) comboBoxSortiranje.Items.Clear();
-            comboBoxSortiranje.Items.Add("Uzlazno po nazivu");
-            comboBoxSortiranje.Items.Add("Silazno po nazivu");
-            comboBoxSortiranje.Items.Add("Uzlazno po cijeni");
-            comboBoxSortiranje.Items.Add("Silazno po cijeni");
-            comboBoxSortiranje.Items.Add("Uzlazno po kolicini");
-            comboBoxSortiranje.Items.Add("Silazno po kolicini");
-        }
-
-        private void OsvjeziDGV(List<Proizvod> proizvods) 
-        {             
-            if (comboBoxSortiranje.SelectedItem != default) 
-            {
-                switch (comboBoxSortiranje.SelectedItem.ToString())
-                {
-                    case "Uzlazno po nazivu": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Naziv_proizvoda).ToList(); break;
-                    case "Silazno po nazivu": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Naziv_proizvoda).ToList(); break;
-                    case "Uzlazno po cijeni": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Cijena_proizvoda).ToList(); break;
-                    case "Silazno po cijeni": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Cijena_proizvoda).ToList(); break;
-                    case "Uzlazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Kolicina_proizvoda).ToList(); break;
-                    case "Silazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Kolicina_proizvoda).ToList(); break;
-                    default: break;
-                }
-            }
-            dataGridViewProizvodi.DataSource = proizvods;
             dataGridViewProizvodi.Columns[0].Visible = false;
             dataGridViewProizvodi.Columns[1].HeaderText = "Naziv";
             dataGridViewProizvodi.Columns[2].HeaderText = "Cijena";
@@ -71,7 +56,63 @@ namespace Systemri
             dataGridViewProizvodi.Columns[13].Visible = false;
             dataGridViewProizvodi.Columns[14].Visible = false;
             dataGridViewProizvodi.Columns[15].Visible = false;
-            dataGridViewProizvodi.Columns[16].Visible = false;    
+            dataGridViewProizvodi.Columns[16].Visible = false;
+            ((ISupportInitialize)dataGridViewProizvodi).EndInit();
+        }
+
+        private void NapuniComboBoxove() 
+        {
+            if (comboBoxKategorija.Items != null) comboBoxKategorija.Items.Clear();
+            foreach (Kategorija_Proizvoda kategorija in DBRepository.DohvatiKategorijeProizvoda()) 
+            {
+                comboBoxKategorija.Items.Add(kategorija);
+            }
+
+            if (comboBoxSortiranje.Items != null) 
+            {
+                comboBoxSortiranje.Items.Add("Uzlazno po nazivu");
+                comboBoxSortiranje.Items.Add("Silazno po nazivu");
+                comboBoxSortiranje.Items.Add("Uzlazno po cijeni");
+                comboBoxSortiranje.Items.Add("Silazno po cijeni");
+                comboBoxSortiranje.Items.Add("Uzlazno po kolicini");
+                comboBoxSortiranje.Items.Add("Silazno po kolicini");
+            }   
+        }
+
+        private void OcistiFiltere() 
+        {
+            if (checkBoxPopust.Checked == true) 
+            {
+                checkBoxPopust.Checked = false;
+            }
+            if (checkBoxPrikaz.Checked == true) 
+            {
+                checkBoxPrikaz.Checked = false;
+            }
+            if (textBoxPretrazivanje.Text != "") textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
+            if (comboBoxKategorija.SelectedItem != default) 
+            {
+                comboBoxKategorija.SelectedItem = default;
+                comboBoxKategorija.Text = "Odaberite kategoriju...";
+            } 
+        }
+
+        private void OsvjeziDGV(List<Proizvod> proizvods) 
+        {
+            if (comboBoxSortiranje.SelectedItem != default) 
+            {
+                switch (comboBoxSortiranje.SelectedItem.ToString())
+                {
+                    case "Uzlazno po nazivu": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Naziv_proizvoda).ToList(); break;
+                    case "Silazno po nazivu": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Naziv_proizvoda).ToList(); break;
+                    case "Uzlazno po cijeni": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Cijena_proizvoda).ToList(); break;
+                    case "Silazno po cijeni": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Cijena_proizvoda).ToList(); break;
+                    case "Uzlazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Kolicina_proizvoda).ToList(); break;
+                    case "Silazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Kolicina_proizvoda).ToList(); break;
+                    default: break;
+                }
+            }
+            dataGridViewProizvodi.DataSource = proizvods;
         }
 
         private List<Proizvod> ProvjeriCheckBoxove() 
@@ -84,11 +125,19 @@ namespace Systemri
             {
                 return DBRepository.DohvatiProizvodeSaSmanjenomZalihom();
             }
+            else if (checkBoxPrikaz.Checked == false && checkBoxPopust.Checked == true)
+            {
+                return DBRepository.DohvatiProizvodeNaPopustu();
+            }
             else if (checkBoxPrikaz.Checked == true && checkBoxPopust.Checked == true)
             {
                 return DBRepository.DohvatiProizvodeSaSmanjenomZalihomINaPopustu();
             }
-            else return DBRepository.DohvatiProizvodeNaPopustu();
+            else 
+            {
+                MessageBox.Show("HAHAHAHAHA");
+                return DBRepository.DohvatiProizvode();
+            }
         }
 
         private void checkBoxPrikaz_CheckedChanged(object sender, EventArgs e)
@@ -131,83 +180,70 @@ namespace Systemri
         {
             if (textBoxPretrazivanje.Text != "Pretrazite proizvod po imenu...") 
             {
-                checkBoxPopust.Checked = false;
-                checkBoxPrikaz.Checked = false;
-                comboBoxKategorija.SelectedItem = default;
-                comboBoxKategorija.Text = "Odaberite kategoriju...";
+                OcistiFiltere();
                 OsvjeziDGV(DBRepository.DohvatiPretrazeneProizvode(textBoxPretrazivanje.Text));
             }    
         }
 
-        private void comboBoxSortiranje_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void labelPoduzece_Click(object sender, EventArgs e)
         {
-            if (comboBoxKategorija.SelectedItem != default)
-            {
-                comboBoxKategorija.SelectedItem = default;
-                comboBoxKategorija.Text = "Odaberite kategoriju...";   
-            }
-            textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
-            checkBoxPopust.Checked = false;
-            checkBoxPrikaz.Checked = false;
+            OcistiFiltere();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
         }
 
         private void dataGridViewProizvodi_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            switch (e.ColumnIndex) 
+            {
+                case 4:
+                    e.FormattingApplied = true;
+                    if (dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        string temp = dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                        switch (temp)
+                        {
+                            case "0":
+                                e.Value = "Nije na popustu";
+                                e.CellStyle.BackColor = Color.PaleVioletRed;
+                                break;
+                            case "1":
+                                e.Value = "Na popustu";
+                                e.CellStyle.BackColor = Color.LimeGreen;
+                                break;
+                            default:
+                                e.Value = "Greska";
+                                break;
+                        }
+                    }break;
+                case 5:
+                    e.FormattingApplied = true;
+                    if (dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        float id = float.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                        e.Value = (id * 100).ToString() + " %";
+                    }break;
+                case 6:
+                    e.FormattingApplied = true;
+                    int id2 = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    e.Value = kategorije.FirstOrDefault(x => x.ID_kategorije_proizvoda == id2).Naziv_kategorije_proizvoda;
+                    break;
+                case 7:
+                    e.FormattingApplied = true;
+                    int id3 = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    e.Value = dobavljaci.FirstOrDefault(x => x.ID_dobavljaca == id3).Naziv_dobavljaca;
+                    break;
+                case 8:
+                    e.FormattingApplied = true;
+                    int id4 = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    e.Value = proizvodaci.FirstOrDefault(x => x.ID_proizvodaca == id4).Naziv_proizvodaca;
+                    break;
+                case 9:
+                    e.FormattingApplied = true;
+                    string id5 = dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    e.Value = mjerneJedinice.FirstOrDefault(x => x.ID_mjerne_jedinice == id5).Naziv_mjerne_jedinice;
+                    break;
 
-            if (e.ColumnIndex == 4)
-            {
-                e.FormattingApplied = true;
-                string temp = dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                switch (temp)
-                {
-                    case "0":
-                        e.Value = "Nije na popustu";
-                        e.CellStyle.BackColor = Color.PaleVioletRed;
-                        break;
-                    case "1":
-                        e.Value = "Na popustu";
-                        e.CellStyle.BackColor = Color.LimeGreen;
-                        break;
-                    default:
-                        e.Value = "Greska";
-                        break;
-                }
-            }
-            else if (e.ColumnIndex == 5)
-            {
-                e.FormattingApplied = true;
-                float id = float.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = (id * 100).ToString() + " %";
-            }
-            else if (e.ColumnIndex == 6)
-            {
-                e.FormattingApplied = true;
-                int id = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = DBRepository.DohvatiImeKategorije(id);
-            }
-            else if (e.ColumnIndex == 7) 
-            {
-                e.FormattingApplied = true;
-                int id = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = DBRepository.DohvatiImeDobavljaca(id);
-            }
-            else if (e.ColumnIndex == 8)
-            {
-                e.FormattingApplied = true;
-                int id = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = DBRepository.DohvatiImeProizvodaca(id);
-            }
-            else if (e.ColumnIndex == 9)
-            {
-                e.FormattingApplied = true;
-                string id = dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                e.Value = DBRepository.DohvatiImeMjerneJedinice(id);
             }
         }
 
@@ -221,9 +257,17 @@ namespace Systemri
                 
                 if (rezultat == DialogResult.Yes) 
                 {
-                    DBRepository.ObrisiProizvod(proizvod);
+                    try
+                    {
+                        DBRepository.ObrisiProizvod(proizvod);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
                 OsvjeziDGV(DBRepository.DohvatiProizvode());
+                OcistiFiltere();
             }
             else 
             {
@@ -235,7 +279,9 @@ namespace Systemri
         {
             DodajProizvodForm proizvodForm = new DodajProizvodForm();
             proizvodForm.ShowDialog();
+            DohvatiListeZaFormatiranje();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
+            OcistiFiltere();
             NapuniComboBoxove();
         }
 
@@ -243,7 +289,9 @@ namespace Systemri
         {
             DodajProizvodForm form = new DodajProizvodForm(dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod);
             form.ShowDialog();
+            DohvatiListeZaFormatiranje();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
+            OcistiFiltere();
         }
 
         private void comboBoxKategorija_SelectedValueChanged(object sender, EventArgs e)
@@ -272,6 +320,7 @@ namespace Systemri
                     }
                 }
                 OsvjeziDGV(DBRepository.DohvatiProizvode());
+                OcistiFiltere();
             }
             else 
             {
@@ -285,6 +334,7 @@ namespace Systemri
                 && checkBoxPrikaz.Checked == false && textBoxPretrazivanje.Text == "Pretrazite proizvod po imenu...")
             {
                 OsvjeziDGV(DBRepository.DohvatiProizvode());
+                OcistiFiltere();
             }
             else if (comboBoxKategorija.SelectedItem as Kategorija_Proizvoda != null)
             {

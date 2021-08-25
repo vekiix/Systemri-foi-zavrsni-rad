@@ -12,7 +12,7 @@ namespace Systemri
 {
     public partial class DodajProizvodForm : Form
     {
-        private Proizvod stariProizvod;
+        private readonly Proizvod stariProizvod;
         public DodajProizvodForm()
         {
             InitializeComponent();
@@ -57,6 +57,7 @@ namespace Systemri
             {
                 comboBoxMjerneJedinice.Items.Add(item);
             }
+            
         }
 
         private void NapuniProizvodaciComboBox() 
@@ -269,6 +270,8 @@ namespace Systemri
                         proizvod.Proizvodac_ID = UpravljanjePodacima.VratiIDProizvodaca(comboBoxProizvodaci.SelectedItem as Proizvodac);
                         proizvod.Mjerna_jedinica_ID = UpravljanjePodacima.VratiIDMjerneJedinice(comboBoxMjerneJedinice.SelectedItem as Mjerna_Jedinica);
                         proizvod.Podruznica_ID = PrijavljeniKorisnik.VratiIDPodruznice();
+                        proizvod.Popust = 0;
+                        proizvod.Postotak_popusta = 0;
                         if (label1.Text == "Dodaj novi proizvod")
                         {
                             DBRepository.DodajProizvod(proizvod);

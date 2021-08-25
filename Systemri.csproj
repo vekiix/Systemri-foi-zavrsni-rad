@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\DodajKorisnikaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajKorisnikaForm.Designer.cs">
+      <DependentUpon>DodajKorisnikaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\DodajMjernuJedinicuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     <Compile Include="Uloga.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forme\DodajKorisnikaForm.resx">
+      <DependentUpon>DodajKorisnikaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajMjernuJedinicuForm.resx">
       <DependentUpon>DodajMjernuJedinicuForm.cs</DependentUpon>
     </EmbeddedResource>

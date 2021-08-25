@@ -13,15 +13,13 @@ namespace Systemri
 {
     public partial class NovaTransakcijaForm : Form
     {
-        private List<Proizvod> racun = new List<Proizvod>();
+        private readonly List<Proizvod> racun = new List<Proizvod>();
         private List<Proizvod> proizvodi = new List<Proizvod>();
+        private double ukupno;
+        private double koeficijent;
         public NovaTransakcijaForm()
         {
             InitializeComponent();
-            proizvodi = DBRepository.DohvatiProizvode();
-            OsvjeziDGVProizvodi();
-            OsvjeziDGVRacun();
-            panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73), -0.1);
         }
 
         private void textBoxPretrazivanje_Leave(object sender, EventArgs e)
@@ -72,6 +70,8 @@ namespace Systemri
         private void OsvjeziDGVRacun() 
         {
             dataGridViewRacun.DataSource = racun.ToList();
+            panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73), -koeficijent);
+            labelUkupno.Text = ukupno.ToString() + " kn";
             SakrijPodatke(dataGridViewRacun);
         }
 
@@ -82,7 +82,9 @@ namespace Systemri
                 Proizvod odabrani = dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod;
                 try
                 {
-                    UpravljanjePodacima.DodajNaRacun(odabrani, proizvodi, racun, 1);
+                    UpravljanjePodacima.DodajNaRacun(odabrani, racun, 1);
+                    ukupno += odabrani.Cijena_proizvoda;
+                    koeficijent += 0.01;
                     OsvjeziDGVProizvodi();
                     OsvjeziDGVRacun();
                 }
@@ -107,8 +109,11 @@ namespace Systemri
             if (e.ColumnIndex == 5)
             {
                 e.FormattingApplied = true;
-                float id = float.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = (id * 100).ToString() + " %";
+                if (dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null) 
+                {
+                    float id = float.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                    e.Value = (id * 100).ToString() + " %";
+                }
             }
             
         }
@@ -128,22 +133,27 @@ namespace Systemri
             if (dataGridViewProizvodi.CurrentRow != null)
             {
                 Proizvod odabrani = dataGridViewProizvodi.CurrentRow.DataBoundItem as Proizvod;
-                try
+                if (odabrani.Kolicina_proizvoda != 0) 
                 {
-                    using (var form = new Forme.UnesiKolicinuForm(odabrani.Kolicina_proizvoda)) 
+                    try
                     {
-                        var rez = form.ShowDialog();
-                        if (rez == DialogResult.OK) 
+                        using (var form = new Forme.UnesiKolicinuForm(odabrani.Kolicina_proizvoda))
                         {
-                            UpravljanjePodacima.DodajNaRacun(odabrani, proizvodi, racun, form.kolicina);
-                            OsvjeziDGVProizvodi();
-                            OsvjeziDGVRacun();
+                            var rez = form.ShowDialog();
+                            if (rez == DialogResult.OK)
+                            {
+                                UpravljanjePodacima.DodajNaRacun(odabrani, racun, form.kolicina);
+                                ukupno += (form.kolicina * odabrani.Cijena_proizvoda);
+                                koeficijent += (0.01 * form.kolicina);
+                                OsvjeziDGVProizvodi();
+                                OsvjeziDGVRacun();
+                            }
                         }
-                    }        
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -178,6 +188,8 @@ namespace Systemri
                     racun.Remove(proizvod); 
                 }
                 UpravljanjePodacima.DodajJedanProizodaNaProizvode(proizvodi, proizvod);
+                ukupno -= proizvod.Cijena_proizvoda;
+                koeficijent -= 0.01;
                 OsvjeziDGVRacun();
                 OsvjeziDGVProizvodi();
             }
@@ -191,8 +203,11 @@ namespace Systemri
         {
             if (dataGridViewRacun.CurrentCell != null)
             {
-                UpravljanjePodacima.DodajKolicinuProizodaNaProizvode(proizvodi, dataGridViewRacun.CurrentRow.DataBoundItem as Proizvod);
-                racun.Remove(dataGridViewRacun.CurrentRow.DataBoundItem as Proizvod);
+                Proizvod proizvod = dataGridViewRacun.CurrentRow.DataBoundItem as Proizvod;
+                UpravljanjePodacima.DodajKolicinuProizodaNaProizvode(proizvodi,proizvod);
+                ukupno -= (proizvod.Cijena_proizvoda * proizvod.Kolicina_proizvoda);
+                koeficijent -= (0.01 * proizvod.Kolicina_proizvoda);
+                racun.Remove(proizvod);
                 OsvjeziDGVRacun();
                 OsvjeziDGVProizvodi();
             }
@@ -204,12 +219,31 @@ namespace Systemri
 
         private void buttonIzvrsiTransakciju_Click(object sender, EventArgs e)
         {
-            if (dataGridViewRacun.Rows.Count > 0) 
+            if (dataGridViewRacun.Rows.Count > 0)
             {
-                DBRepository.NapraviRacun(racun);
-                racun.Clear();
-                OsvjeziDGVRacun();
+                DialogResult result = MessageBox.Show("Izrsiti transakciju u iznosu od: " + ukupno + "?", "Upozorenje o izvrsavanju transakcija", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) 
+                {
+                    DBRepository.NapraviRacun(racun);
+                    racun.Clear();
+                    ukupno = 0;
+                    koeficijent = 0;
+                    OsvjeziDGVRacun();
+                } 
             }
+            else 
+            {
+                MessageBox.Show("Nema proizvoda u kosarici!");
+            }
+        }
+
+        private void NovaTransakcijaForm_Load(object sender, EventArgs e)
+        {
+            proizvodi = DBRepository.DohvatiProizvode();
+            ukupno = 0;
+            koeficijent = 0;
+            OsvjeziDGVProizvodi();
+            OsvjeziDGVRacun();
         }
     }
 }

@@ -46,27 +46,27 @@ namespace Systemri.Forme
         private void VratiLozinku() 
         {
             textBoxLozinka.Text = "password";
-            textBoxLozinka.ForeColor = Color.DimGray;
+            textBoxLozinka.ForeColor = Color.DarkGray;
             textBoxLozinka.PasswordChar = default;
         }
 
         private void VratiKorIme()
         {
             textBoxKorisnickoIme.Text = "username";
-            textBoxKorisnickoIme.ForeColor = Color.DimGray;
+            textBoxKorisnickoIme.ForeColor = Color.DarkGray;
         }
 
         private void OcistiLozinku() 
         {
             textBoxLozinka.Text = "";
-            textBoxLozinka.ForeColor = Color.Black;
+            textBoxLozinka.ForeColor = Color.Gainsboro;
             textBoxLozinka.PasswordChar = '*';
         }
 
         private void OcistiKorIme() 
         {
             textBoxKorisnickoIme.Text = "";
-            textBoxKorisnickoIme.ForeColor = Color.Black;
+            textBoxKorisnickoIme.ForeColor = Color.Gainsboro;
         }
 
         private void textBoxLozinka_Enter(object sender, EventArgs e)

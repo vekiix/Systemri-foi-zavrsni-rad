@@ -34,7 +34,7 @@ namespace Systemri
 
         public static bool Prijava(string korime, string lozinka) 
         {
-            Korisnik korisnik = DBRepository.DohvatiKorisnika(korime, lozinka);
+            Korisnik korisnik = DBRepository.DohvatiKorisnika(korime, SHA(lozinka));
             if (korisnik != null) 
             {
                 ID_korisnik = korisnik.ID_korisnik;
@@ -76,10 +76,10 @@ namespace Systemri
 
         public static void Odjava() 
         {
-            ID_korisnik = default(int);
-            korisnicko_ime = default(string);
-            podruznica_ID = default(int);
-            uloga_ID = default(int);
+            ID_korisnik = default;
+            korisnicko_ime = default;
+            podruznica_ID = default;
+            uloga_ID = default;
         }
 
         internal static int VratiIDKorisnika()

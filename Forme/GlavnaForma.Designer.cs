@@ -106,7 +106,7 @@ namespace Systemri
             this.buttonOdjava.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonOdjava.FlatAppearance.BorderSize = 0;
             this.buttonOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOdjava.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOdjava.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOdjava.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonOdjava.Image = ((System.Drawing.Image)(resources.GetObject("buttonOdjava.Image")));
             this.buttonOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,7 +126,7 @@ namespace Systemri
             this.buttonUpravljanjeKorisnicima.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonUpravljanjeKorisnicima.FlatAppearance.BorderSize = 0;
             this.buttonUpravljanjeKorisnicima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpravljanjeKorisnicima.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpravljanjeKorisnicima.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpravljanjeKorisnicima.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonUpravljanjeKorisnicima.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpravljanjeKorisnicima.Image")));
             this.buttonUpravljanjeKorisnicima.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,7 +146,7 @@ namespace Systemri
             this.buttonNovaTransakcija.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonNovaTransakcija.FlatAppearance.BorderSize = 0;
             this.buttonNovaTransakcija.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNovaTransakcija.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovaTransakcija.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNovaTransakcija.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonNovaTransakcija.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovaTransakcija.Image")));
             this.buttonNovaTransakcija.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -166,7 +166,7 @@ namespace Systemri
             this.buttonSkladiste.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonSkladiste.FlatAppearance.BorderSize = 0;
             this.buttonSkladiste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSkladiste.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSkladiste.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSkladiste.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonSkladiste.Image = ((System.Drawing.Image)(resources.GetObject("buttonSkladiste.Image")));
             this.buttonSkladiste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,7 +175,7 @@ namespace Systemri
             this.buttonSkladiste.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonSkladiste.Size = new System.Drawing.Size(220, 60);
             this.buttonSkladiste.TabIndex = 2;
-            this.buttonSkladiste.Text = "      Skladište";
+            this.buttonSkladiste.Text = "      Skladiste";
             this.buttonSkladiste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSkladiste.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSkladiste.UseVisualStyleBackColor = true;
@@ -186,7 +186,7 @@ namespace Systemri
             this.buttonPocetnaStranica.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPocetnaStranica.FlatAppearance.BorderSize = 0;
             this.buttonPocetnaStranica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPocetnaStranica.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPocetnaStranica.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPocetnaStranica.ForeColor = System.Drawing.Color.Gainsboro;
             this.buttonPocetnaStranica.Image = ((System.Drawing.Image)(resources.GetObject("buttonPocetnaStranica.Image")));
             this.buttonPocetnaStranica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +195,7 @@ namespace Systemri
             this.buttonPocetnaStranica.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonPocetnaStranica.Size = new System.Drawing.Size(220, 60);
             this.buttonPocetnaStranica.TabIndex = 1;
-            this.buttonPocetnaStranica.Text = "      Početna stranica";
+            this.buttonPocetnaStranica.Text = "      Pocetna stranica";
             this.buttonPocetnaStranica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPocetnaStranica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPocetnaStranica.UseVisualStyleBackColor = true;

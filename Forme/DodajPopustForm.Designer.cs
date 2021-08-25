@@ -117,6 +117,7 @@ namespace Systemri.Forme
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DodajPopustForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popust";
             this.ResumeLayout(false);
             this.PerformLayout();

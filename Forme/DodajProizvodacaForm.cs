@@ -84,18 +84,22 @@ namespace Systemri.Forme
             {
                 if (label4.Text != "Dodaj novog dobavljaca")
                 {
-                    Proizvodac proizvodac = new Proizvodac();
-                    proizvodac.Naziv_proizvodaca = textBoxNaziv.Text;
-                    proizvodac.Kontakt_proizvodaca = textBoxKontakt.Text;
-                    proizvodac.Adresa_proizvodaca = textBoxAdresa.Text;
+                    Proizvodac proizvodac = new Proizvodac
+                    {
+                        Naziv_proizvodaca = textBoxNaziv.Text,
+                        Kontakt_proizvodaca = textBoxKontakt.Text,
+                        Adresa_proizvodaca = textBoxAdresa.Text
+                    };
                     DBRepository.DodajProizvodaca(proizvodac);
                 }
                 else 
                 {
-                    Dobavljac dobavljac = new Dobavljac();
-                    dobavljac.Naziv_dobavljaca = textBoxNaziv.Text;
-                    dobavljac.Kontakt_dobavljaca = textBoxKontakt.Text;
-                    dobavljac.Adresa_dobavljaca = textBoxAdresa.Text;
+                    Dobavljac dobavljac = new Dobavljac
+                    {
+                        Naziv_dobavljaca = textBoxNaziv.Text,
+                        Kontakt_dobavljaca = textBoxKontakt.Text,
+                        Adresa_dobavljaca = textBoxAdresa.Text
+                    };
                     DBRepository.DodajDobavljaca(dobavljac);
                 }
                 

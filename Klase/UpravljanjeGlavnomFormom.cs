@@ -40,9 +40,9 @@ namespace Systemri
                 {
                     proslaTipka.BackColor = Color.FromArgb(51, 51, 76);
                     proslaTipka.ForeColor = Color.Gainsboro;
-                    proslaTipka.Font = new System.Drawing.Font("Times New Roman", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                }               
-            
+                    proslaTipka.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                }
+
         }
 
         public static void AktivirajTipku(Button trenutnaTipka)
@@ -51,7 +51,7 @@ namespace Systemri
             {
                 trenutnaTipka.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(trenutnaTipka.BackColor, 0.2);
                 trenutnaTipka.ForeColor = Color.White;
-                trenutnaTipka.Font = new System.Drawing.Font("Times New Roman", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                trenutnaTipka.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
         }
 

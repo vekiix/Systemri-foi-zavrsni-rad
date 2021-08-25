@@ -16,8 +16,7 @@ namespace Systemri
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            PrijavljeniKorisnik.Prijava("vekiix", "1234");
-            Application.Run(new GlavnaForma());
+            Application.Run(new Forme.LogInForma());
         }
     }
 }

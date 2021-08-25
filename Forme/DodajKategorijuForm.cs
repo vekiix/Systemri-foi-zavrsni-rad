@@ -59,9 +59,11 @@ namespace Systemri.Forme
             if (textBoxNaziv.Text != "" && textBoxNaziv.Text != "Unesite naziv..."
                 && textBoxOpis.Text != "" && textBoxOpis.Text != "Unesite opis...")
             {
-                Kategorija_Proizvoda kategorija = new Kategorija_Proizvoda();
-                kategorija.Naziv_kategorije_proizvoda = textBoxNaziv.Text;
-                kategorija.Opis = textBoxOpis.Text;
+                Kategorija_Proizvoda kategorija = new Kategorija_Proizvoda
+                {
+                    Naziv_kategorije_proizvoda = textBoxNaziv.Text,
+                    Opis = textBoxOpis.Text
+                };
                 DBRepository.DodajKategorijuProizvoda(kategorija);
                 Close();
             }

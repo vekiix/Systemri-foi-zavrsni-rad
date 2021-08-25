@@ -47,7 +47,7 @@ namespace Systemri.Forme
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Gainsboro;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(72, 134);
@@ -74,10 +74,10 @@ namespace Systemri.Forme
             // 
             // textBoxKorisnickoIme
             // 
-            this.textBoxKorisnickoIme.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxKorisnickoIme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.textBoxKorisnickoIme.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxKorisnickoIme.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.textBoxKorisnickoIme.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxKorisnickoIme.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxKorisnickoIme.Location = new System.Drawing.Point(64, 210);
             this.textBoxKorisnickoIme.Multiline = true;
             this.textBoxKorisnickoIme.Name = "textBoxKorisnickoIme";
@@ -89,10 +89,10 @@ namespace Systemri.Forme
             // 
             // textBoxLozinka
             // 
-            this.textBoxLozinka.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBoxLozinka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.textBoxLozinka.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLozinka.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLozinka.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxLozinka.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxLozinka.Location = new System.Drawing.Point(64, 273);
             this.textBoxLozinka.Multiline = true;
             this.textBoxLozinka.Name = "textBoxLozinka";
@@ -163,7 +163,7 @@ namespace Systemri.Forme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.ClientSize = new System.Drawing.Size(308, 486);
             this.Controls.Add(this.labelZatvori);
             this.Controls.Add(this.buttonPrijava);

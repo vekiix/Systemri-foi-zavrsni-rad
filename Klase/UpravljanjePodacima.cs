@@ -54,24 +54,25 @@ namespace Systemri
 
         internal static Proizvod PrebaciUNovi(Proizvod proizvod)
         {
-            Proizvod novi = new Proizvod();
-
-            novi.ID_proizvoda = proizvod.ID_proizvoda;
-            novi.Naziv_proizvoda = proizvod.Naziv_proizvoda;
-            novi.Cijena_proizvoda = proizvod.Cijena_proizvoda;
-            novi.Kolicina_proizvoda = proizvod.Kolicina_proizvoda;
-            novi.Popust = proizvod.Popust;
-            novi.Postotak_popusta = proizvod.Postotak_popusta;
-            novi.Kategorija_proizvoda_ID = proizvod.Kategorija_proizvoda_ID;
-            novi.Dobavljac_ID = proizvod.Dobavljac_ID;
-            novi.Proizvodac_ID = proizvod.Proizvodac_ID;
-            novi.Mjerna_jedinica_ID = proizvod.Mjerna_jedinica_ID;
-            novi.Podruznica_ID = proizvod.Podruznica_ID;
+            Proizvod novi = new Proizvod
+            {
+                ID_proizvoda = proizvod.ID_proizvoda,
+                Naziv_proizvoda = proizvod.Naziv_proizvoda,
+                Cijena_proizvoda = proizvod.Cijena_proizvoda,
+                Kolicina_proizvoda = proizvod.Kolicina_proizvoda,
+                Popust = proizvod.Popust,
+                Postotak_popusta = proizvod.Postotak_popusta,
+                Kategorija_proizvoda_ID = proizvod.Kategorija_proizvoda_ID,
+                Dobavljac_ID = proizvod.Dobavljac_ID,
+                Proizvodac_ID = proizvod.Proizvodac_ID,
+                Mjerna_jedinica_ID = proizvod.Mjerna_jedinica_ID,
+                Podruznica_ID = proizvod.Podruznica_ID
+            };
 
             return novi;
         }
 
-        internal static void DodajNaRacun(Proizvod odabrani, List<Proizvod> proizvodi, List<Proizvod> racun, int unos) 
+        internal static void DodajNaRacun(Proizvod odabrani, List<Proizvod> racun, int unos) 
         {
             if (odabrani.Kolicina_proizvoda >= unos)
             {
@@ -100,7 +101,6 @@ namespace Systemri
             {
                 Proizvod proizvodZaSmanjenje = proizvodi.FirstOrDefault(x => x.ID_proizvoda == item.ID_proizvoda);
                 if(proizvodZaSmanjenje != null) proizvodZaSmanjenje.Kolicina_proizvoda -= item.Kolicina_proizvoda;
-
             }
         }
 
@@ -115,6 +115,43 @@ namespace Systemri
             Proizvod proizvodZaPovecanje = proizvods.FirstOrDefault(x => x.ID_proizvoda == proizvod.ID_proizvoda);
             if (proizvodZaPovecanje != null) proizvodZaPovecanje.Kolicina_proizvoda += 1;
         }
+
+        public static string VratiUlogu(int id)
+        {
+            switch (id)
+            {
+                case 1: return "Skladistar";
+                case 2: return "Blagajnik";
+                case 3: return "Upravitelj";
+                case 4: return "Administrator";
+                default: return null;
+            }
+        }
+
+        public static int VratiIDUloge(string naziv) 
+        {
+            switch (naziv) 
+            {
+                case "Skladistar": return 1;
+                case "Blagajnik": return 2;
+                case "Upravitelj": return 3;
+                case "Administrator": return 4;
+                default: return 0;
+            }
+        }
+
+        public static string GenerirajLozinku(int length)
+        {
+            const string slova = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder rezultat = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                rezultat.Append(slova[rnd.Next(slova.Length)]);
+            }
+            return rezultat.ToString();
+        }
+
 
     }
 }
