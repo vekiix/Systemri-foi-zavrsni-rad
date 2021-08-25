@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SystemriDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dobavljac">
+          <Key>
+            <PropertyRef Name="ID_dobavljaca" />
+          </Key>
+          <Property Name="ID_dobavljaca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_dobavljaca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kontakt_dobavljaca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresa_dobavljaca" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategorija_Proizvoda">
+          <Key>
+            <PropertyRef Name="ID_kategorije_proizvoda" />
+          </Key>
+          <Property Name="ID_kategorije_proizvoda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_kategorije_proizvoda" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="text" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="ID_korisnik" />
+          </Key>
+          <Property Name="ID_korisnik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Korisnicko_ime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lozinka" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Mjesto_stanovanja" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Datum_rodenja" Type="date" Nullable="false" />
+          <Property Name="UgovorOd" Type="date" Nullable="false" />
+          <Property Name="UgovorDo" Type="date" />
+          <Property Name="Uloga_ID" Type="int" Nullable="false" />
+          <Property Name="Podruznica_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mjerna_Jedinica">
+          <Key>
+            <PropertyRef Name="ID_mjerne_jedinice" />
+          </Key>
+          <Property Name="ID_mjerne_jedinice" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Naziv_mjerne_jedinice" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Podruznica">
+          <Key>
+            <PropertyRef Name="ID_podruznica" />
+          </Key>
+          <Property Name="ID_podruznica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adresa_podruznice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Poduzece_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poduzece">
+          <Key>
+            <PropertyRef Name="ID_poduzeca" />
+          </Key>
+          <Property Name="ID_poduzeca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_poduzeca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresa_poduzeca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OIB_poduzeca" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Vlasnik_poduzeca" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ID_proizvoda" />
+          </Key>
+          <Property Name="ID_proizvoda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_proizvoda" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cijena_proizvoda" Type="float" Nullable="false" />
+          <Property Name="Kolicina_proizvoda" Type="int" Nullable="false" />
+          <Property Name="Popust" Type="smallint" Nullable="false" />
+          <Property Name="Postotak_popusta" Type="float" />
+          <Property Name="Kategorija_proizvoda_ID" Type="int" Nullable="false" />
+          <Property Name="Dobavljac_ID" Type="int" Nullable="false" />
+          <Property Name="Proizvodac_ID" Type="int" Nullable="false" />
+          <Property Name="Mjerna_jedinica_ID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Podruznica_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvodac">
+          <Key>
+            <PropertyRef Name="ID_proizvodaca" />
+          </Key>
+          <Property Name="ID_proizvodaca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_proizvodaca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresa_proizvodaca" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kontakt_proizvodaca" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Racun">
+          <Key>
+            <PropertyRef Name="ID_racuna" />
+          </Key>
+          <Property Name="ID_racuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="Vrijeme" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Korisnik_ID" Type="int" Nullable="false" />
+          <Property Name="Ukupan_iznos" Type="float" />
+        </EntityType>
+        <EntityType Name="Stavka">
+          <Key>
+            <PropertyRef Name="ID_stavke" />
+          </Key>
+          <Property Name="ID_stavke" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kolicina" Type="int" Nullable="false" />
+          <Property Name="Ukupan_iznos" Type="float" Nullable="false" />
+          <Property Name="Proizvod_ID" Type="int" Nullable="false" />
+          <Property Name="Racun_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uloga">
+          <Key>
+            <PropertyRef Name="ID_uloge" />
+          </Key>
+          <Property Name="ID_uloge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_uloge" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis_ovlasti" Type="text" />
+        </EntityType>
+        <Association Name="FK_Korisnik_Podruznica">
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="Podruznica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Korisnik_Uloga">
+          <End Role="Uloga" Type="Self.Uloga" Multiplicity="1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uloga">
+              <PropertyRef Name="ID_uloge" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="Uloga_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Podruznica_Podruznica">
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="1" />
+          <End Role="Podruznica1" Type="Self.Podruznica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Podruznica1">
+              <PropertyRef Name="ID_podruznica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Podruznica_Poduzece">
+          <End Role="Poduzece" Type="Self.Poduzece" Multiplicity="1" />
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poduzece">
+              <PropertyRef Name="ID_poduzeca" />
+            </Principal>
+            <Dependent Role="Podruznica">
+              <PropertyRef Name="Poduzece_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Dobavljac">
+          <End Role="Dobavljac" Type="Self.Dobavljac" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dobavljac">
+              <PropertyRef Name="ID_dobavljaca" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Dobavljac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Kategorija_Proizvoda1">
+          <End Role="Kategorija_Proizvoda" Type="Self.Kategorija_Proizvoda" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija_Proizvoda">
+              <PropertyRef Name="ID_kategorije_proizvoda" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Kategorija_proizvoda_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Mjerna_Jedinica">
+          <End Role="Mjerna_Jedinica" Type="Self.Mjerna_Jedinica" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjerna_Jedinica">
+              <PropertyRef Name="ID_mjerne_jedinice" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Mjerna_jedinica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Podruznica">
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Podruznica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Proizvodac">
+          <End Role="Proizvodac" Type="Self.Proizvodac" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodac">
+              <PropertyRef Name="ID_proizvodaca" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Proizvodac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavka_Proizvod">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="Stavka" Type="Self.Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID_proizvoda" />
+            </Principal>
+            <Dependent Role="Stavka">
+              <PropertyRef Name="Proizvod_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavka_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="Stavka" Type="Self.Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="ID_racuna" />
+            </Principal>
+            <Dependent Role="Stavka">
+              <PropertyRef Name="Racun_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemriDBModelStoreContainer">
+          <EntitySet Name="Dobavljac" EntityType="Self.Dobavljac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategorija_Proizvoda" EntityType="Self.Kategorija_Proizvoda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mjerna_Jedinica" EntityType="Self.Mjerna_Jedinica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Podruznica" EntityType="Self.Podruznica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poduzece" EntityType="Self.Poduzece" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvodac" EntityType="Self.Proizvodac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Racun" EntityType="Self.Racun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stavka" EntityType="Self.Stavka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uloga" EntityType="Self.Uloga" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Korisnik_Podruznica" Association="Self.FK_Korisnik_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznica" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Korisnik_Uloga" Association="Self.FK_Korisnik_Uloga">
+            <End Role="Uloga" EntitySet="Uloga" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Podruznica_Podruznica" Association="Self.FK_Podruznica_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznica" />
+            <End Role="Podruznica1" EntitySet="Podruznica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Podruznica_Poduzece" Association="Self.FK_Podruznica_Poduzece">
+            <End Role="Poduzece" EntitySet="Poduzece" />
+            <End Role="Podruznica" EntitySet="Podruznica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Dobavljac" Association="Self.FK_Proizvod_Dobavljac">
+            <End Role="Dobavljac" EntitySet="Dobavljac" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Kategorija_Proizvoda1" Association="Self.FK_Proizvod_Kategorija_Proizvoda1">
+            <End Role="Kategorija_Proizvoda" EntitySet="Kategorija_Proizvoda" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Mjerna_Jedinica" Association="Self.FK_Proizvod_Mjerna_Jedinica">
+            <End Role="Mjerna_Jedinica" EntitySet="Mjerna_Jedinica" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Podruznica" Association="Self.FK_Proizvod_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznica" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Proizvodac" Association="Self.FK_Proizvod_Proizvodac">
+            <End Role="Proizvodac" EntitySet="Proizvodac" />
+            <End Role="Proizvod" EntitySet="Proizvod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavka_Proizvod" Association="Self.FK_Stavka_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="Stavka" EntitySet="Stavka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavka_Racun" Association="Self.FK_Stavka_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Stavka" EntitySet="Stavka" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SystemriDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dobavljac">
+          <Key>
+            <PropertyRef Name="ID_dobavljaca" />
+          </Key>
+          <Property Name="ID_dobavljaca" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_dobavljaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt_dobavljaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresa_dobavljaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Proizvods" Relationship="Self.FK_Proizvod_Dobavljac" FromRole="Dobavljac" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Kategorija_Proizvoda">
+          <Key>
+            <PropertyRef Name="ID_kategorije_proizvoda" />
+          </Key>
+          <Property Name="ID_kategorije_proizvoda" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_kategorije_proizvoda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proizvods" Relationship="Self.FK_Proizvod_Kategorija_Proizvoda1" FromRole="Kategorija_Proizvoda" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Korisnik">
+          <Key>
+            <PropertyRef Name="ID_korisnik" />
+          </Key>
+          <Property Name="ID_korisnik" Type="Int32" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Korisnicko_ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lozinka" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mjesto_stanovanja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OIB" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Datum_rodenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UgovorOd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UgovorDo" Type="DateTime" Precision="0" />
+          <Property Name="Uloga_ID" Type="Int32" Nullable="false" />
+          <Property Name="Podruznica_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Podruznica" Relationship="Self.FK_Korisnik_Podruznica" FromRole="Korisnik" ToRole="Podruznica" />
+          <NavigationProperty Name="Uloga" Relationship="Self.FK_Korisnik_Uloga" FromRole="Korisnik" ToRole="Uloga" />
+          <NavigationProperty Name="Racuns" Relationship="Self.FK_Racun_Korisnik" FromRole="Korisnik" ToRole="Racun" />
+        </EntityType>
+        <EntityType Name="Mjerna_Jedinica">
+          <Key>
+            <PropertyRef Name="ID_mjerne_jedinice" />
+          </Key>
+          <Property Name="ID_mjerne_jedinice" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Naziv_mjerne_jedinice" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Proizvods" Relationship="Self.FK_Proizvod_Mjerna_Jedinica" FromRole="Mjerna_Jedinica" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Podruznica">
+          <Key>
+            <PropertyRef Name="ID_podruznica" />
+          </Key>
+          <Property Name="ID_podruznica" Type="Int32" Nullable="false" />
+          <Property Name="Adresa_podruznice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Poduzece_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Korisniks" Relationship="Self.FK_Korisnik_Podruznica" FromRole="Podruznica" ToRole="Korisnik" />
+          <NavigationProperty Name="Poduzece" Relationship="Self.FK_Podruznica_Poduzece" FromRole="Podruznica" ToRole="Poduzece" />
+          <NavigationProperty Name="Podruznica1" Relationship="SystemriDBModel.FK_Podruznica_Podruznica" FromRole="Podruznica" ToRole="Podruznica1" />
+          <NavigationProperty Name="Podruznica2" Relationship="SystemriDBModel.FK_Podruznica_Podruznica" FromRole="Podruznica1" ToRole="Podruznica" />
+          <NavigationProperty Name="Proizvods" Relationship="SystemriDBModel.FK_Proizvod_Podruznica" FromRole="Podruznica" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Poduzece">
+          <Key>
+            <PropertyRef Name="ID_poduzeca" />
+          </Key>
+          <Property Name="ID_poduzeca" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_poduzeca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresa_poduzeca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OIB_poduzeca" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vlasnik_poduzeca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Podruznicas" Relationship="Self.FK_Podruznica_Poduzece" FromRole="Poduzece" ToRole="Podruznica" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ID_proizvoda" />
+          </Key>
+          <Property Name="ID_proizvoda" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_proizvoda" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cijena_proizvoda" Type="Double" Nullable="false" />
+          <Property Name="Kolicina_proizvoda" Type="Int32" Nullable="false" />
+          <Property Name="Popust" Type="Int16" Nullable="false" />
+          <Property Name="Postotak_popusta" Type="Double" />
+          <Property Name="Kategorija_proizvoda_ID" Type="Int32" Nullable="false" />
+          <Property Name="Dobavljac_ID" Type="Int32" Nullable="false" />
+          <Property Name="Proizvodac_ID" Type="Int32" Nullable="false" />
+          <Property Name="Mjerna_jedinica_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dobavljac" Relationship="Self.FK_Proizvod_Dobavljac" FromRole="Proizvod" ToRole="Dobavljac" />
+          <NavigationProperty Name="Kategorija_Proizvoda" Relationship="Self.FK_Proizvod_Kategorija_Proizvoda1" FromRole="Proizvod" ToRole="Kategorija_Proizvoda" />
+          <NavigationProperty Name="Mjerna_Jedinica" Relationship="Self.FK_Proizvod_Mjerna_Jedinica" FromRole="Proizvod" ToRole="Mjerna_Jedinica" />
+          <NavigationProperty Name="Proizvodac" Relationship="Self.FK_Proizvod_Proizvodac" FromRole="Proizvod" ToRole="Proizvodac" />
+          <NavigationProperty Name="Stavkas" Relationship="Self.FK_Stavka_Proizvod" FromRole="Proizvod" ToRole="Stavka" />
+          <Property Name="Podruznica_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Podruznica" Relationship="SystemriDBModel.FK_Proizvod_Podruznica" FromRole="Proizvod" ToRole="Podruznica" />
+        </EntityType>
+        <EntityType Name="Proizvodac">
+          <Key>
+            <PropertyRef Name="ID_proizvodaca" />
+          </Key>
+          <Property Name="ID_proizvodaca" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_proizvodaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresa_proizvodaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt_proizvodaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Proizvods" Relationship="Self.FK_Proizvod_Proizvodac" FromRole="Proizvodac" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Racun">
+          <Key>
+            <PropertyRef Name="ID_racuna" />
+          </Key>
+          <Property Name="ID_racuna" Type="Int32" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vrijeme" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Korisnik_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.FK_Racun_Korisnik" FromRole="Racun" ToRole="Korisnik" />
+          <NavigationProperty Name="Stavkas" Relationship="Self.FK_Stavka_Racun" FromRole="Racun" ToRole="Stavka" />
+          <Property Name="Ukupan_iznos" Type="Double" />
+        </EntityType>
+        <EntityType Name="Stavka">
+          <Key>
+            <PropertyRef Name="ID_stavke" />
+          </Key>
+          <Property Name="ID_stavke" Type="Int32" Nullable="false" />
+          <Property Name="Kolicina" Type="Int32" Nullable="false" />
+          <Property Name="Ukupan_iznos" Type="Double" Nullable="false" />
+          <Property Name="Proizvod_ID" Type="Int32" Nullable="false" />
+          <Property Name="Racun_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proizvod" Relationship="Self.FK_Stavka_Proizvod" FromRole="Stavka" ToRole="Proizvod" />
+          <NavigationProperty Name="Racun" Relationship="Self.FK_Stavka_Racun" FromRole="Stavka" ToRole="Racun" />
+        </EntityType>
+        <EntityType Name="Uloga">
+          <Key>
+            <PropertyRef Name="ID_uloge" />
+          </Key>
+          <Property Name="ID_uloge" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_uloge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis_ovlasti" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Korisniks" Relationship="Self.FK_Korisnik_Uloga" FromRole="Uloga" ToRole="Korisnik" />
+        </EntityType>
+        <Association Name="FK_Proizvod_Dobavljac">
+          <End Role="Dobavljac" Type="Self.Dobavljac" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dobavljac">
+              <PropertyRef Name="ID_dobavljaca" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Dobavljac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Kategorija_Proizvoda1">
+          <End Role="Kategorija_Proizvoda" Type="Self.Kategorija_Proizvoda" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija_Proizvoda">
+              <PropertyRef Name="ID_kategorije_proizvoda" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Kategorija_proizvoda_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Korisnik_Podruznica">
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="Podruznica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Korisnik_Uloga">
+          <End Role="Uloga" Type="Self.Uloga" Multiplicity="1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uloga">
+              <PropertyRef Name="ID_uloge" />
+            </Principal>
+            <Dependent Role="Korisnik">
+              <PropertyRef Name="Uloga_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Racun_Korisnik">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="ID_korisnik" />
+            </Principal>
+            <Dependent Role="Racun">
+              <PropertyRef Name="Korisnik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Mjerna_Jedinica">
+          <End Role="Mjerna_Jedinica" Type="Self.Mjerna_Jedinica" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjerna_Jedinica">
+              <PropertyRef Name="ID_mjerne_jedinice" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Mjerna_jedinica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Podruznica_Poduzece">
+          <End Role="Poduzece" Type="Self.Poduzece" Multiplicity="1" />
+          <End Role="Podruznica" Type="Self.Podruznica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poduzece">
+              <PropertyRef Name="ID_poduzeca" />
+            </Principal>
+            <Dependent Role="Podruznica">
+              <PropertyRef Name="Poduzece_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Proizvodac">
+          <End Role="Proizvodac" Type="Self.Proizvodac" Multiplicity="1" />
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodac">
+              <PropertyRef Name="ID_proizvodaca" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Proizvodac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavka_Proizvod">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="Stavka" Type="Self.Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ID_proizvoda" />
+            </Principal>
+            <Dependent Role="Stavka">
+              <PropertyRef Name="Proizvod_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavka_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="Stavka" Type="Self.Stavka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="ID_racuna" />
+            </Principal>
+            <Dependent Role="Stavka">
+              <PropertyRef Name="Racun_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SystemriDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dobavljacs" EntityType="Self.Dobavljac" />
+          <EntitySet Name="Kategorija_Proizvoda" EntityType="Self.Kategorija_Proizvoda" />
+          <EntitySet Name="Korisniks" EntityType="Self.Korisnik" />
+          <EntitySet Name="Mjerna_Jedinica" EntityType="Self.Mjerna_Jedinica" />
+          <EntitySet Name="Podruznicas" EntityType="Self.Podruznica" />
+          <EntitySet Name="Poduzeces" EntityType="Self.Poduzece" />
+          <EntitySet Name="Proizvods" EntityType="Self.Proizvod" />
+          <EntitySet Name="Proizvodacs" EntityType="Self.Proizvodac" />
+          <EntitySet Name="Racuns" EntityType="Self.Racun" />
+          <EntitySet Name="Stavkas" EntityType="Self.Stavka" />
+          <EntitySet Name="Ulogas" EntityType="Self.Uloga" />
+          <AssociationSet Name="FK_Proizvod_Dobavljac" Association="Self.FK_Proizvod_Dobavljac">
+            <End Role="Dobavljac" EntitySet="Dobavljacs" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Kategorija_Proizvoda1" Association="Self.FK_Proizvod_Kategorija_Proizvoda1">
+            <End Role="Kategorija_Proizvoda" EntitySet="Kategorija_Proizvoda" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Korisnik_Podruznica" Association="Self.FK_Korisnik_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznicas" />
+            <End Role="Korisnik" EntitySet="Korisniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Korisnik_Uloga" Association="Self.FK_Korisnik_Uloga">
+            <End Role="Uloga" EntitySet="Ulogas" />
+            <End Role="Korisnik" EntitySet="Korisniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Racun_Korisnik" Association="Self.FK_Racun_Korisnik">
+            <End Role="Korisnik" EntitySet="Korisniks" />
+            <End Role="Racun" EntitySet="Racuns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Mjerna_Jedinica" Association="Self.FK_Proizvod_Mjerna_Jedinica">
+            <End Role="Mjerna_Jedinica" EntitySet="Mjerna_Jedinica" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Podruznica_Poduzece" Association="Self.FK_Podruznica_Poduzece">
+            <End Role="Poduzece" EntitySet="Poduzeces" />
+            <End Role="Podruznica" EntitySet="Podruznicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Proizvodac" Association="Self.FK_Proizvod_Proizvodac">
+            <End Role="Proizvodac" EntitySet="Proizvodacs" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavka_Proizvod" Association="Self.FK_Stavka_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="Stavka" EntitySet="Stavkas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavka_Racun" Association="Self.FK_Stavka_Racun">
+            <End Role="Racun" EntitySet="Racuns" />
+            <End Role="Stavka" EntitySet="Stavkas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Podruznica_Podruznica" Association="SystemriDBModel.FK_Podruznica_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznicas" />
+            <End Role="Podruznica1" EntitySet="Podruznicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proizvod_Podruznica" Association="SystemriDBModel.FK_Proizvod_Podruznica">
+            <End Role="Podruznica" EntitySet="Podruznicas" />
+            <End Role="Proizvod" EntitySet="Proizvods" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Podruznica_Podruznica">
+          <End Type="SystemriDBModel.Podruznica" Role="Podruznica" Multiplicity="1" />
+          <End Type="SystemriDBModel.Podruznica" Role="Podruznica1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Podruznica1">
+              <PropertyRef Name="ID_podruznica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proizvod_Podruznica">
+          <End Type="SystemriDBModel.Podruznica" Role="Podruznica" Multiplicity="1" />
+          <End Type="SystemriDBModel.Proizvod" Role="Proizvod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podruznica">
+              <PropertyRef Name="ID_podruznica" />
+            </Principal>
+            <Dependent Role="Proizvod">
+              <PropertyRef Name="Podruznica_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SystemriDBModelStoreContainer" CdmEntityContainer="SystemriDBEntities">
+          <EntitySetMapping Name="Dobavljacs">
+            <EntityTypeMapping TypeName="SystemriDBModel.Dobavljac">
+              <MappingFragment StoreEntitySet="Dobavljac">
+                <ScalarProperty Name="ID_dobavljaca" ColumnName="ID_dobavljaca" />
+                <ScalarProperty Name="Naziv_dobavljaca" ColumnName="Naziv_dobavljaca" />
+                <ScalarProperty Name="Kontakt_dobavljaca" ColumnName="Kontakt_dobavljaca" />
+                <ScalarProperty Name="Adresa_dobavljaca" ColumnName="Adresa_dobavljaca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategorija_Proizvoda">
+            <EntityTypeMapping TypeName="SystemriDBModel.Kategorija_Proizvoda">
+              <MappingFragment StoreEntitySet="Kategorija_Proizvoda">
+                <ScalarProperty Name="ID_kategorije_proizvoda" ColumnName="ID_kategorije_proizvoda" />
+                <ScalarProperty Name="Naziv_kategorije_proizvoda" ColumnName="Naziv_kategorije_proizvoda" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisniks">
+            <EntityTypeMapping TypeName="SystemriDBModel.Korisnik">
+              <MappingFragment StoreEntitySet="Korisnik">
+                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Korisnicko_ime" ColumnName="Korisnicko_ime" />
+                <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+                <ScalarProperty Name="Mjesto_stanovanja" ColumnName="Mjesto_stanovanja" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="Datum_rodenja" ColumnName="Datum_rodenja" />
+                <ScalarProperty Name="UgovorOd" ColumnName="UgovorOd" />
+                <ScalarProperty Name="UgovorDo" ColumnName="UgovorDo" />
+                <ScalarProperty Name="Uloga_ID" ColumnName="Uloga_ID" />
+                <ScalarProperty Name="Podruznica_ID" ColumnName="Podruznica_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mjerna_Jedinica">
+            <EntityTypeMapping TypeName="SystemriDBModel.Mjerna_Jedinica">
+              <MappingFragment StoreEntitySet="Mjerna_Jedinica">
+                <ScalarProperty Name="ID_mjerne_jedinice" ColumnName="ID_mjerne_jedinice" />
+                <ScalarProperty Name="Naziv_mjerne_jedinice" ColumnName="Naziv_mjerne_jedinice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Podruznicas">
+            <EntityTypeMapping TypeName="SystemriDBModel.Podruznica">
+              <MappingFragment StoreEntitySet="Podruznica">
+                <ScalarProperty Name="ID_podruznica" ColumnName="ID_podruznica" />
+                <ScalarProperty Name="Adresa_podruznice" ColumnName="Adresa_podruznice" />
+                <ScalarProperty Name="Poduzece_ID" ColumnName="Poduzece_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poduzeces">
+            <EntityTypeMapping TypeName="SystemriDBModel.Poduzece">
+              <MappingFragment StoreEntitySet="Poduzece">
+                <ScalarProperty Name="ID_poduzeca" ColumnName="ID_poduzeca" />
+                <ScalarProperty Name="Naziv_poduzeca" ColumnName="Naziv_poduzeca" />
+                <ScalarProperty Name="Adresa_poduzeca" ColumnName="Adresa_poduzeca" />
+                <ScalarProperty Name="OIB_poduzeca" ColumnName="OIB_poduzeca" />
+                <ScalarProperty Name="Vlasnik_poduzeca" ColumnName="Vlasnik_poduzeca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvods">
+            <EntityTypeMapping TypeName="SystemriDBModel.Proizvod">
+              <MappingFragment StoreEntitySet="Proizvod">
+                <ScalarProperty Name="Podruznica_ID" ColumnName="Podruznica_ID" />
+                <ScalarProperty Name="ID_proizvoda" ColumnName="ID_proizvoda" />
+                <ScalarProperty Name="Naziv_proizvoda" ColumnName="Naziv_proizvoda" />
+                <ScalarProperty Name="Cijena_proizvoda" ColumnName="Cijena_proizvoda" />
+                <ScalarProperty Name="Kolicina_proizvoda" ColumnName="Kolicina_proizvoda" />
+                <ScalarProperty Name="Popust" ColumnName="Popust" />
+                <ScalarProperty Name="Postotak_popusta" ColumnName="Postotak_popusta" />
+                <ScalarProperty Name="Kategorija_proizvoda_ID" ColumnName="Kategorija_proizvoda_ID" />
+                <ScalarProperty Name="Dobavljac_ID" ColumnName="Dobavljac_ID" />
+                <ScalarProperty Name="Proizvodac_ID" ColumnName="Proizvodac_ID" />
+                <ScalarProperty Name="Mjerna_jedinica_ID" ColumnName="Mjerna_jedinica_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvodacs">
+            <EntityTypeMapping TypeName="SystemriDBModel.Proizvodac">
+              <MappingFragment StoreEntitySet="Proizvodac">
+                <ScalarProperty Name="ID_proizvodaca" ColumnName="ID_proizvodaca" />
+                <ScalarProperty Name="Naziv_proizvodaca" ColumnName="Naziv_proizvodaca" />
+                <ScalarProperty Name="Adresa_proizvodaca" ColumnName="Adresa_proizvodaca" />
+                <ScalarProperty Name="Kontakt_proizvodaca" ColumnName="Kontakt_proizvodaca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racuns">
+            <EntityTypeMapping TypeName="SystemriDBModel.Racun">
+              <MappingFragment StoreEntitySet="Racun">
+                <ScalarProperty Name="Ukupan_iznos" ColumnName="Ukupan_iznos" />
+                <ScalarProperty Name="ID_racuna" ColumnName="ID_racuna" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="Korisnik_ID" ColumnName="Korisnik_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stavkas">
+            <EntityTypeMapping TypeName="SystemriDBModel.Stavka">
+              <MappingFragment StoreEntitySet="Stavka">
+                <ScalarProperty Name="ID_stavke" ColumnName="ID_stavke" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="Ukupan_iznos" ColumnName="Ukupan_iznos" />
+                <ScalarProperty Name="Proizvod_ID" ColumnName="Proizvod_ID" />
+                <ScalarProperty Name="Racun_ID" ColumnName="Racun_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ulogas">
+            <EntityTypeMapping TypeName="SystemriDBModel.Uloga">
+              <MappingFragment StoreEntitySet="Uloga">
+                <ScalarProperty Name="ID_uloge" ColumnName="ID_uloge" />
+                <ScalarProperty Name="Naziv_uloge" ColumnName="Naziv_uloge" />
+                <ScalarProperty Name="Opis_ovlasti" ColumnName="Opis_ovlasti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
