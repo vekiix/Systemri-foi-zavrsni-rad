@@ -8,6 +8,7 @@ namespace Systemri
 {
     public static class DBRepository
     {
+
         internal static Korisnik DohvatiKorisnika(string korime, string lozinka) 
         {
             using (var db = new SystemriDBEntities())
@@ -24,17 +25,98 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities())
             {
-                int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
-                DateTime datum = DateTime.Now.AddDays(-7);
-                return (double)(from r in db.Racuns
-                                join k in db.Korisniks
-                                on r.Korisnik_ID
-                                equals k.ID_korisnik
-                                join p in db.Podruznicas
-                                on k.Podruznica_ID
-                                equals p.ID_podruznica
-                                where p.ID_podruznica == idPodruznice && r.Datum > datum
-                                select r.Ukupan_iznos).Sum();
+                try 
+                {
+                    int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
+                    DateTime datum = DateTime.Now.AddDays(-7);
+                    return (double)(from r in db.Racuns
+                                    join s in db.Stavkas
+                                    on r.ID_racuna
+                                    equals s.Racun_ID
+                                    join p in db.Proizvods
+                                    on s.Proizvod_ID
+                                    equals p.ID_proizvoda
+                                    where p.Podruznica_ID == idPodruznice && r.Datum>datum
+                                    select r.Ukupan_iznos).Distinct().Sum();
+                }
+                catch(Exception)
+                {
+                    return 0;
+                }
+                
+            }
+        }
+
+        internal static List<Stavka> DohvatiStavke(Racun racun)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                return (from s in db.Stavkas
+                        where s.Racun_ID == racun.ID_racuna
+                        select s).ToList();
+            }
+        }
+
+        internal static void PromijeniLozinku(string text)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                int id = PrijavljeniKorisnik.VratiIDKorisnika();
+                Korisnik korisnik = (from k in db.Korisniks
+                                     where k.ID_korisnik == id
+                                     select k).FirstOrDefault();
+                db.Korisniks.Attach(korisnik);
+                korisnik.Lozinka = PrijavljeniKorisnik.SHA(text);
+                db.SaveChanges();
+            }
+        }
+
+        internal static List<Klase.PodaciGrafikon> DohvatiKategorijeIBrojProdanihProizvodaZaProteklaTriMjeseca() 
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                int id = PrijavljeniKorisnik.VratiIDPodruznice();
+                DateTime datum = DateTime.Now.AddMonths(-3);
+                var list = (from s in db.Stavkas
+                                     join p in db.Proizvods
+                                     on s.Proizvod_ID
+                                     equals p.ID_proizvoda
+                                     join kp in db.Kategorija_Proizvoda
+                                     on p.Kategorija_proizvoda_ID
+                                     equals kp.ID_kategorije_proizvoda
+                                     where p.Podruznica_ID == id && s.Racun.Datum > datum
+                                     group s by kp.Naziv_kategorije_proizvoda into g
+                                     select new Klase.PodaciGrafikon()
+                                        {
+                                         Kolicina = g.Sum(s => s.Kolicina),
+                                         Naziv_kategorije = g.Key,
+                                        }
+                                     );
+                list.GroupBy(x => x.Naziv_kategorije);
+                if (list != null) return list.ToList();
+                else return null;
+            }
+        }
+
+        internal static void DodajPodruznicu(Podruznica podruznica)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                string naziv = PrijavljeniKorisnik.VratiImePoduzeca();
+                podruznica.Poduzece_ID = db.Poduzeces.FirstOrDefault(x => x.Naziv_poduzeca == naziv).ID_poduzeca;
+                db.Podruznicas.Add(podruznica);
+                db.SaveChanges();
+            }
+        }
+
+        internal static List<Podruznica> DohvatiPretrazenePodruznice(string text)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                   return (from p in db.Podruznicas
+                           where p.Adresa_podruznice.Contains(text)
+                           select p).ToList();
+                
             }
         }
 
@@ -44,17 +126,36 @@ namespace Systemri
             {
                 int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
                 DateTime datum = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-                return (double)(from r in db.Racuns
-                                join k in db.Korisniks
-                                on r.Korisnik_ID
-                                equals k.ID_korisnik
-                                join p in db.Podruznicas
-                                on k.Podruznica_ID
-                                equals p.ID_podruznica
-                                where p.ID_podruznica == idPodruznice && r.Datum.Day == datum.Date.Day
-                                                                      && r.Datum.Month == datum.Month
-                                                                      && r.Datum.Year == datum.Year
-                                select r.Ukupan_iznos).Sum();
+                try
+                {
+                    double returnMe = (double)(from r in db.Racuns
+                                               join s in db.Stavkas
+                                               on r.ID_racuna
+                                               equals s.Racun_ID
+                                               join p in db.Proizvods
+                                               on s.Proizvod_ID
+                                               equals p.ID_proizvoda
+                                               where p.Podruznica_ID == idPodruznice && r.Datum.Day == datum.Date.Day
+                                                                                     && r.Datum.Month == datum.Month
+                                                                                     && r.Datum.Year == datum.Year
+                                               select r.Ukupan_iznos).Distinct().Sum();
+                    return returnMe;
+                }
+                catch(Exception) 
+                {
+                    return 0;
+                }
+            }
+        }
+
+
+        internal static void ObrisiPodruznicu(Podruznica podruznica)
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
+                db.Podruznicas.Attach(podruznica);
+                db.Podruznicas.Remove(podruznica);
+                db.SaveChanges();
             }
         }
 
@@ -62,19 +163,26 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities()) 
             {
-                int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
-                DateTime datum = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-                return (double)(from r in db.Racuns
-                                join k in db.Korisniks
-                                on r.Korisnik_ID
-                                equals k.ID_korisnik
-                                join p in db.Podruznicas
-                                on k.Podruznica_ID
-                                equals p.ID_podruznica
-                                where p.ID_podruznica == idPodruznice 
-                                                                      && r.Datum.Month == datum.Month
-                                                                      && r.Datum.Year == datum.Year
-                                select r.Ukupan_iznos).Sum();
+                try
+                {
+                    int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
+                    DateTime datum = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+                    return (double)(from r in db.Racuns
+                                    join s in db.Stavkas
+                                    on r.ID_racuna
+                                    equals s.Racun_ID
+                                    join p in db.Proizvods
+                                    on s.Proizvod_ID
+                                    equals p.ID_proizvoda
+                                    where p.Podruznica_ID == idPodruznice && r.Datum.Month == datum.Month
+                                                                          && r.Datum.Year == datum.Year
+                                    select r.Ukupan_iznos).Distinct().Sum();
+                }
+                catch(Exception) 
+                {
+                    return 0;
+                }
+                
             }
         }
 
@@ -82,11 +190,16 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities()) 
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 int id = PrijavljeniKorisnik.VratiIDPodruznice();
                 return (from r in db.Racuns
-                        where r.Korisnik.Podruznica_ID == id
-                        orderby r.ID_racuna descending
-                        select r).ToList();          
+                        join s in db.Stavkas
+                        on r.ID_racuna equals s.Racun_ID
+                        join p in db.Proizvods
+                        on s.Proizvod_ID equals p.ID_proizvoda
+                        where p.Podruznica_ID == id
+                        orderby r.ID_racuna ascending
+                        select r).Distinct().ToList();
             }
         }
 
@@ -245,12 +358,29 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities()) 
             {
+                int id = PrijavljeniKorisnik.VratiIDPodruznice();
+                IEnumerable<Kategorija_Proizvoda> kategorije = (from p in db.Proizvods
+                                  join kp in db.Kategorija_Proizvoda
+                                  on p.Kategorija_proizvoda_ID
+                                  equals kp.ID_kategorije_proizvoda
+                                  where p.Podruznica_ID == id
+                                  select kp);
+                
+                if (kategorije != null) return kategorije.ToList();
+                else return null;
+            }  
+        }
+
+        internal static List<Kategorija_Proizvoda> DohvatiSveKategorijeProizvoda() 
+        {
+            using (var db = new SystemriDBEntities()) 
+            {
                 return (from kp in db.Kategorija_Proizvoda
                         select kp).ToList();
             }
-            
         }
-        
+
+
 
         internal static List<Proizvod> DohvatiProizvodeNaPopustu() 
         {
@@ -373,7 +503,7 @@ namespace Systemri
             }
         }
 
-        internal static void NapraviRacun(List<Proizvod> racun)
+        internal static Racun NapraviRacun(List<Proizvod> racun)
         {
             using (var db = new SystemriDBEntities()) 
             {
@@ -416,6 +546,7 @@ namespace Systemri
                 noviRacun.Ukupan_iznos = Math.Round(ukupanIznos,2);
                 
                 db.SaveChanges();
+                return noviRacun;
             }
         }
 
@@ -510,9 +641,10 @@ namespace Systemri
             {
                 int id = PrijavljeniKorisnik.VratiIDPodruznice();
                 int idKorisnik = PrijavljeniKorisnik.VratiIDKorisnika();
+                int uloga = UpravljanjePodacima.VratiIDUloge(PrijavljeniKorisnik.VratiUlogu());
                 return (from k in db.Korisniks
-                       where k.Podruznica_ID == id && k.ID_korisnik != idKorisnik
-                       select k).ToList();
+                        where k.Podruznica_ID == id && k.ID_korisnik != idKorisnik && k.Uloga_ID < uloga
+                        select k).ToList();
             }
         }
 
@@ -520,10 +652,9 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities())
             {
-                int id = PrijavljeniKorisnik.VratiIDPodruznice();
-                int idKorisnik = PrijavljeniKorisnik.VratiIDKorisnika();
+                string id = PrijavljeniKorisnik.VratiImePoduzeca();
                 return (from k in db.Korisniks
-                        where k.Podruznica_ID == id
+                        where k.Podruznica.Poduzece.Naziv_poduzeca == id
                         select k).ToList();
             }
         }

@@ -42,11 +42,30 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forme\DodajPodruznicuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\DodajPodruznicuForm.Designer.cs">
+      <DependentUpon>DodajPodruznicuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forme\DodajKorisnikaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +125,12 @@
     <Compile Include="Forme\UnesiKolicinuForm.Designer.cs">
       <DependentUpon>UnesiKolicinuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izvjesca\RacunReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjesca\RacunReport.Designer.cs">
+      <DependentUpon>RacunReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Klase\DBRepository.cs" />
     <Compile Include="Dobavljac.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
@@ -125,6 +156,7 @@
     <Compile Include="Kategorija_Proizvoda.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Klase\PodaciGrafikon.cs" />
     <Compile Include="Klase\PrijavljeniKorisnik.cs" />
     <Compile Include="Klase\Program.cs" />
     <Compile Include="Klase\UpravljanjePodacima.cs" />
@@ -140,11 +172,23 @@
     <Compile Include="Poduzece.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forme\PregledajTransakcijuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PregledajTransakcijuForm.Designer.cs">
+      <DependentUpon>PregledajTransakcijuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proizvod.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Proizvodac.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\PromijeniLozinkuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\PromijeniLozinkuForm.Designer.cs">
+      <DependentUpon>PromijeniLozinkuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forme\SkladisteForm.cs">
@@ -169,8 +213,14 @@
     <Compile Include="Racun.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Stavka.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemriDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemriDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SystemriModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -190,6 +240,15 @@
     <Compile Include="Uloga.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forme\UpravljanjePodruznicamaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\UpravljanjePodruznicamaForm.Designer.cs">
+      <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forme\DodajPodruznicuForm.resx">
+      <DependentUpon>DodajPodruznicuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajKorisnikaForm.resx">
       <DependentUpon>DodajKorisnikaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +279,15 @@
     <EmbeddedResource Include="Forme\UnesiKolicinuForm.resx">
       <DependentUpon>UnesiKolicinuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Izvjesca\RacunReport.resx">
+      <DependentUpon>RacunReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PromijeniLozinkuForm.resx">
+      <DependentUpon>PromijeniLozinkuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\PregledajTransakcijuForm.resx">
+      <DependentUpon>PregledajTransakcijuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -239,6 +307,10 @@
     <EmbeddedResource Include="Forme\UpravljanjeKorisnicimaForm.resx">
       <DependentUpon>UpravljanjeKorisnicimaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\UpravljanjePodruznicamaForm.resx">
+      <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjesca\RacunRDLC.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,6 +325,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SystemriModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="SystemriDBDataSet.xsc">
+      <DependentUpon>SystemriDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SystemriDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SystemriDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SystemriDBDataSet.xss">
+      <DependentUpon>SystemriDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="SystemriModel.edmx.diagram">
       <DependentUpon>SystemriModel.edmx</DependentUpon>
     </None>
@@ -276,6 +359,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SystemriModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SystemriModel.edmx</DependentUpon>

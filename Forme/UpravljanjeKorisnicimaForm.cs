@@ -12,6 +12,7 @@ namespace Systemri
 {
     public partial class UpravljanjeKorisnicimaForm : Form
     {
+        public List<Uloga> uloge = DBRepository.DohvatiUloge();
         public UpravljanjeKorisnicimaForm()
         {
             InitializeComponent();
@@ -48,8 +49,7 @@ namespace Systemri
 
         private void OsvjeziDGV(List<Korisnik> korisnici) 
         {
-            dataGridViewKorisnici.DataSource = korisnici;
-            
+            dataGridViewKorisnici.DataSource = korisnici; 
         }
 
         private void dataGridViewKorisnici_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -58,7 +58,7 @@ namespace Systemri
             {
                 e.FormattingApplied = true;
                 int temp = int.Parse(dataGridViewKorisnici.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                e.Value = UpravljanjePodacima.VratiUlogu(temp);
+                e.Value = uloge.FirstOrDefault(x => x.ID_uloge == temp).Naziv_uloge.ToString();
             }
         }
 

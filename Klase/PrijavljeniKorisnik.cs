@@ -52,6 +52,11 @@ namespace Systemri
             return korisnicko_ime;
         }
 
+        public static void PromijeniIDPodruznice(int id) 
+        {
+            podruznica_ID = id;
+        }
+
         public static string VratiUlogu()
         {
             switch (uloga_ID) 

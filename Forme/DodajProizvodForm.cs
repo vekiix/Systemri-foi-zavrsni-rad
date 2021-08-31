@@ -44,7 +44,7 @@ namespace Systemri
         private void NapuniKategorijeComboBox() 
         {
             if(comboBoxKategorija.Items != null) comboBoxKategorija.Items.Clear();
-            foreach (var item in DBRepository.DohvatiKategorijeProizvoda())
+            foreach (var item in DBRepository.DohvatiSveKategorijeProizvoda())
             {
                 comboBoxKategorija.Items.Add(item);
             }

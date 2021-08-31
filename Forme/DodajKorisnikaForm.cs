@@ -178,7 +178,7 @@ namespace Systemri
                         if (DBRepository.ProvjeriKorisnickoIme(textBoxKorisnickoIme.Text)) 
                         {
                             string lozinka = UpravljanjePodacima.GenerirajLozinku(8);
-                            noviKorisnik.Lozinka = lozinka;
+                            noviKorisnik.Lozinka = PrijavljeniKorisnik.SHA(lozinka);
                             MessageBox.Show("Uspjesno generirana nova lozinka!\n" + lozinka);
                             DBRepository.DodajKorisnika(noviKorisnik);
                             Close();

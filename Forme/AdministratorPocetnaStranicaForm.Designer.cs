@@ -30,6 +30,9 @@ namespace Systemri
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministratorPocetnaStranicaForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -56,6 +59,7 @@ namespace Systemri
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.chartProizvoda = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.buttonPregledaj = new System.Windows.Forms.Button();
@@ -70,6 +74,7 @@ namespace Systemri
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProizvoda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacuni)).BeginInit();
             this.SuspendLayout();
             // 
@@ -355,12 +360,51 @@ namespace Systemri
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel5.Controls.Add(this.chartProizvoda);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Location = new System.Drawing.Point(700, 77);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(330, 316);
             this.panel5.TabIndex = 6;
+            // 
+            // chartProizvoda
+            // 
+            this.chartProizvoda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chartProizvoda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.chartProizvoda.BorderlineColor = System.Drawing.Color.Transparent;
+            this.chartProizvoda.BorderlineWidth = 0;
+            this.chartProizvoda.BorderSkin.BackColor = System.Drawing.Color.Transparent;
+            this.chartProizvoda.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
+            this.chartProizvoda.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.White;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            chartArea1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.BorderColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.chartProizvoda.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            legend1.Font = new System.Drawing.Font("Nirmala UI", 6.5F);
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartProizvoda.Legends.Add(legend1);
+            this.chartProizvoda.Location = new System.Drawing.Point(25, 71);
+            this.chartProizvoda.Name = "chartProizvoda";
+            this.chartProizvoda.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartProizvoda.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))))};
+            series1.ChartArea = "ChartArea1";
+            series1.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartProizvoda.Series.Add(series1);
+            this.chartProizvoda.Size = new System.Drawing.Size(287, 199);
+            this.chartProizvoda.TabIndex = 3;
+            this.chartProizvoda.Text = "Proizvodi";
             // 
             // label14
             // 
@@ -394,19 +438,20 @@ namespace Systemri
             this.buttonPregledaj.ForeColor = System.Drawing.Color.White;
             this.buttonPregledaj.Location = new System.Drawing.Point(886, 481);
             this.buttonPregledaj.Name = "buttonPregledaj";
-            this.buttonPregledaj.Size = new System.Drawing.Size(144, 37);
+            this.buttonPregledaj.Size = new System.Drawing.Size(144, 58);
             this.buttonPregledaj.TabIndex = 7;
             this.buttonPregledaj.Text = "Pregledaj transakciju";
             this.buttonPregledaj.UseVisualStyleBackColor = false;
+            this.buttonPregledaj.Click += new System.EventHandler(this.buttonPregledaj_Click);
             // 
             // buttonStorniraj
             // 
-            this.buttonStorniraj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonStorniraj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonStorniraj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.buttonStorniraj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStorniraj.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStorniraj.ForeColor = System.Drawing.Color.White;
-            this.buttonStorniraj.Location = new System.Drawing.Point(886, 593);
+            this.buttonStorniraj.Location = new System.Drawing.Point(886, 554);
             this.buttonStorniraj.Name = "buttonStorniraj";
             this.buttonStorniraj.Size = new System.Drawing.Size(144, 37);
             this.buttonStorniraj.TabIndex = 8;
@@ -420,39 +465,38 @@ namespace Systemri
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewRacuni.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRacuni.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dataGridViewRacuni.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.dataGridViewRacuni.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewRacuni.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewRacuni.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewRacuni.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewRacuni.ColumnHeadersHeight = 50;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(111)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewRacuni.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRacuni.EnableHeadersVisualStyles = false;
             this.dataGridViewRacuni.Location = new System.Drawing.Point(23, 481);
             this.dataGridViewRacuni.Name = "dataGridViewRacuni";
+            this.dataGridViewRacuni.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewRacuni.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewRacuni.RowTemplate.Height = 30;
-            this.dataGridViewRacuni.Size = new System.Drawing.Size(832, 149);
-            this.dataGridViewRacuni.TabIndex = 23;
+            this.dataGridViewRacuni.RowTemplate.Height = 45;
+            this.dataGridViewRacuni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRacuni.Size = new System.Drawing.Size(847, 149);
+            this.dataGridViewRacuni.TabIndex = 29;
             this.dataGridViewRacuni.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRacuni_CellFormatting);
             // 
             // AdministratorPocetnaStranicaForm
@@ -488,6 +532,7 @@ namespace Systemri
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProizvoda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacuni)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,5 +569,6 @@ namespace Systemri
         private System.Windows.Forms.Button buttonPregledaj;
         private System.Windows.Forms.Button buttonStorniraj;
         private System.Windows.Forms.DataGridView dataGridViewRacuni;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProizvoda;
     }
 }

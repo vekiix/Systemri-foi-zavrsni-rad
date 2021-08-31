@@ -31,6 +31,7 @@ namespace Systemri
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlavnaForma));
             this.panelNavigacija = new System.Windows.Forms.Panel();
+            this.buttonUpravljanjePodruznicama = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelPodruznica = new System.Windows.Forms.Label();
             this.labelPoduzece = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@ namespace Systemri
             this.buttonSkladiste = new System.Windows.Forms.Button();
             this.buttonPocetnaStranica = new System.Windows.Forms.Button();
             this.panelKorisnik = new System.Windows.Forms.Panel();
+            this.labelPromijeni = new System.Windows.Forms.Label();
             this.labelVrstaKorisnika = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,6 +55,7 @@ namespace Systemri
             // panelNavigacija
             // 
             this.panelNavigacija.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelNavigacija.Controls.Add(this.buttonUpravljanjePodruznicama);
             this.panelNavigacija.Controls.Add(this.panel1);
             this.panelNavigacija.Controls.Add(this.buttonOdjava);
             this.panelNavigacija.Controls.Add(this.buttonUpravljanjeKorisnicima);
@@ -63,8 +66,28 @@ namespace Systemri
             this.panelNavigacija.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavigacija.Location = new System.Drawing.Point(0, 0);
             this.panelNavigacija.Name = "panelNavigacija";
-            this.panelNavigacija.Size = new System.Drawing.Size(220, 681);
+            this.panelNavigacija.Size = new System.Drawing.Size(240, 681);
             this.panelNavigacija.TabIndex = 0;
+            // 
+            // buttonUpravljanjePodruznicama
+            // 
+            this.buttonUpravljanjePodruznicama.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonUpravljanjePodruznicama.FlatAppearance.BorderSize = 0;
+            this.buttonUpravljanjePodruznicama.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpravljanjePodruznicama.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpravljanjePodruznicama.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonUpravljanjePodruznicama.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpravljanjePodruznicama.Image")));
+            this.buttonUpravljanjePodruznicama.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpravljanjePodruznicama.Location = new System.Drawing.Point(0, 374);
+            this.buttonUpravljanjePodruznicama.Name = "buttonUpravljanjePodruznicama";
+            this.buttonUpravljanjePodruznicama.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.buttonUpravljanjePodruznicama.Size = new System.Drawing.Size(240, 60);
+            this.buttonUpravljanjePodruznicama.TabIndex = 9;
+            this.buttonUpravljanjePodruznicama.Text = "      Upravljanje podruznicama";
+            this.buttonUpravljanjePodruznicama.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpravljanjePodruznicama.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpravljanjePodruznicama.UseVisualStyleBackColor = true;
+            this.buttonUpravljanjePodruznicama.Click += new System.EventHandler(this.buttonUpravljanjePodruznicama_Click);
             // 
             // panel1
             // 
@@ -74,7 +97,7 @@ namespace Systemri
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 590);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 31);
+            this.panel1.Size = new System.Drawing.Size(240, 31);
             this.panel1.TabIndex = 8;
             // 
             // labelPodruznica
@@ -84,7 +107,7 @@ namespace Systemri
             this.labelPodruznica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelPodruznica.Location = new System.Drawing.Point(0, 15);
             this.labelPodruznica.Name = "labelPodruznica";
-            this.labelPodruznica.Size = new System.Drawing.Size(220, 12);
+            this.labelPodruznica.Size = new System.Drawing.Size(240, 12);
             this.labelPodruznica.TabIndex = 7;
             this.labelPodruznica.Text = ".";
             this.labelPodruznica.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,7 +119,7 @@ namespace Systemri
             this.labelPoduzece.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.labelPoduzece.Location = new System.Drawing.Point(0, 0);
             this.labelPoduzece.Name = "labelPoduzece";
-            this.labelPoduzece.Size = new System.Drawing.Size(220, 15);
+            this.labelPoduzece.Size = new System.Drawing.Size(240, 15);
             this.labelPoduzece.TabIndex = 6;
             this.labelPoduzece.Text = ".";
             this.labelPoduzece.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,7 +136,7 @@ namespace Systemri
             this.buttonOdjava.Location = new System.Drawing.Point(0, 621);
             this.buttonOdjava.Name = "buttonOdjava";
             this.buttonOdjava.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonOdjava.Size = new System.Drawing.Size(220, 60);
+            this.buttonOdjava.Size = new System.Drawing.Size(240, 60);
             this.buttonOdjava.TabIndex = 5;
             this.buttonOdjava.Text = "      Odjava";
             this.buttonOdjava.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -133,7 +156,7 @@ namespace Systemri
             this.buttonUpravljanjeKorisnicima.Location = new System.Drawing.Point(0, 314);
             this.buttonUpravljanjeKorisnicima.Name = "buttonUpravljanjeKorisnicima";
             this.buttonUpravljanjeKorisnicima.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonUpravljanjeKorisnicima.Size = new System.Drawing.Size(220, 60);
+            this.buttonUpravljanjeKorisnicima.Size = new System.Drawing.Size(240, 60);
             this.buttonUpravljanjeKorisnicima.TabIndex = 4;
             this.buttonUpravljanjeKorisnicima.Text = "      Upravljanje korisnicima";
             this.buttonUpravljanjeKorisnicima.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,7 +176,7 @@ namespace Systemri
             this.buttonNovaTransakcija.Location = new System.Drawing.Point(0, 254);
             this.buttonNovaTransakcija.Name = "buttonNovaTransakcija";
             this.buttonNovaTransakcija.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonNovaTransakcija.Size = new System.Drawing.Size(220, 60);
+            this.buttonNovaTransakcija.Size = new System.Drawing.Size(240, 60);
             this.buttonNovaTransakcija.TabIndex = 3;
             this.buttonNovaTransakcija.Text = "      Nova transakcija";
             this.buttonNovaTransakcija.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,7 +196,7 @@ namespace Systemri
             this.buttonSkladiste.Location = new System.Drawing.Point(0, 194);
             this.buttonSkladiste.Name = "buttonSkladiste";
             this.buttonSkladiste.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonSkladiste.Size = new System.Drawing.Size(220, 60);
+            this.buttonSkladiste.Size = new System.Drawing.Size(240, 60);
             this.buttonSkladiste.TabIndex = 2;
             this.buttonSkladiste.Text = "      Skladiste";
             this.buttonSkladiste.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -193,7 +216,7 @@ namespace Systemri
             this.buttonPocetnaStranica.Location = new System.Drawing.Point(0, 134);
             this.buttonPocetnaStranica.Name = "buttonPocetnaStranica";
             this.buttonPocetnaStranica.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.buttonPocetnaStranica.Size = new System.Drawing.Size(220, 60);
+            this.buttonPocetnaStranica.Size = new System.Drawing.Size(240, 60);
             this.buttonPocetnaStranica.TabIndex = 1;
             this.buttonPocetnaStranica.Text = "      Pocetna stranica";
             this.buttonPocetnaStranica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,23 +227,38 @@ namespace Systemri
             // panelKorisnik
             // 
             this.panelKorisnik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelKorisnik.Controls.Add(this.labelPromijeni);
             this.panelKorisnik.Controls.Add(this.labelVrstaKorisnika);
             this.panelKorisnik.Controls.Add(this.labelUsername);
             this.panelKorisnik.Controls.Add(this.pictureBox1);
             this.panelKorisnik.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelKorisnik.Location = new System.Drawing.Point(0, 0);
             this.panelKorisnik.Name = "panelKorisnik";
-            this.panelKorisnik.Size = new System.Drawing.Size(220, 134);
+            this.panelKorisnik.Size = new System.Drawing.Size(240, 134);
             this.panelKorisnik.TabIndex = 0;
+            // 
+            // labelPromijeni
+            // 
+            this.labelPromijeni.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelPromijeni.Font = new System.Drawing.Font("Nirmala UI", 6.15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.labelPromijeni.ForeColor = System.Drawing.Color.White;
+            this.labelPromijeni.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelPromijeni.Location = new System.Drawing.Point(0, 106);
+            this.labelPromijeni.Name = "labelPromijeni";
+            this.labelPromijeni.Size = new System.Drawing.Size(240, 28);
+            this.labelPromijeni.TabIndex = 3;
+            this.labelPromijeni.Text = "Promijeni lozinku";
+            this.labelPromijeni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPromijeni.Click += new System.EventHandler(this.labelPromijeni_Click);
             // 
             // labelVrstaKorisnika
             // 
             this.labelVrstaKorisnika.Font = new System.Drawing.Font("Nirmala UI", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVrstaKorisnika.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.labelVrstaKorisnika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelVrstaKorisnika.Location = new System.Drawing.Point(0, 108);
+            this.labelVrstaKorisnika.Location = new System.Drawing.Point(1, 82);
             this.labelVrstaKorisnika.Name = "labelVrstaKorisnika";
-            this.labelVrstaKorisnika.Size = new System.Drawing.Size(220, 12);
+            this.labelVrstaKorisnika.Size = new System.Drawing.Size(240, 24);
             this.labelVrstaKorisnika.TabIndex = 2;
             this.labelVrstaKorisnika.Text = ".";
             this.labelVrstaKorisnika.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,19 +268,20 @@ namespace Systemri
             this.labelUsername.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ForeColor = System.Drawing.Color.White;
             this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelUsername.Location = new System.Drawing.Point(0, 79);
+            this.labelUsername.Location = new System.Drawing.Point(2, 67);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(220, 15);
+            this.labelUsername.Size = new System.Drawing.Size(238, 15);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = ".";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(51, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 73);
+            this.pictureBox1.Size = new System.Drawing.Size(240, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -250,9 +289,9 @@ namespace Systemri
             // panelForma
             // 
             this.panelForma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForma.Location = new System.Drawing.Point(220, 0);
+            this.panelForma.Location = new System.Drawing.Point(240, 0);
             this.panelForma.Name = "panelForma";
-            this.panelForma.Size = new System.Drawing.Size(1044, 681);
+            this.panelForma.Size = new System.Drawing.Size(1024, 681);
             this.panelForma.TabIndex = 2;
             // 
             // GlavnaForma
@@ -289,6 +328,8 @@ namespace Systemri
         private System.Windows.Forms.Label labelPodruznica;
         private System.Windows.Forms.Label labelPoduzece;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonUpravljanjePodruznicama;
+        private System.Windows.Forms.Label labelPromijeni;
     }
 }
 

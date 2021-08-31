@@ -72,7 +72,7 @@ namespace Systemri
             return novi;
         }
 
-        internal static void DodajNaRacun(Proizvod odabrani, List<Proizvod> racun, int unos) 
+        internal static List<Proizvod> DodajNaRacun(Proizvod odabrani,List<Proizvod> racun, int unos) 
         {
             if (odabrani.Kolicina_proizvoda >= unos)
             {
@@ -80,14 +80,16 @@ namespace Systemri
                 Proizvod stari = racun.FirstOrDefault(x => x.ID_proizvoda == odabrani.ID_proizvoda);
                 if (stari != null)
                 {
-                    UpravljanjePodacima.PovecajKolicinu(stari, unos);
+                    stari = UpravljanjePodacima.PovecajKolicinu(stari, unos);
                 }
                 else
                 {
-                    Proizvod novi = UpravljanjePodacima.PrebaciUNovi(odabrani);
+                    Proizvod novi = PrebaciUNovi(odabrani);
                     novi.Kolicina_proizvoda = unos;
                     racun.Add(novi);
+                    racun.OrderBy(x => x.ID_proizvoda);
                 }
+                return racun;
             }
             else
             {
@@ -106,7 +108,7 @@ namespace Systemri
 
         internal static void DodajKolicinuProizodaNaProizvode(List<Proizvod> proizvods, Proizvod proizvod)
         {
-           Proizvod proizvodZaPovecanje = proizvods.FirstOrDefault(x => x.ID_proizvoda == proizvod.ID_proizvoda);
+            Proizvod proizvodZaPovecanje = proizvods.FirstOrDefault(x => x.ID_proizvoda == proizvod.ID_proizvoda);
             if (proizvodZaPovecanje != null) proizvodZaPovecanje.Kolicina_proizvoda += proizvod.Kolicina_proizvoda;
         }
 

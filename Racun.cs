@@ -29,5 +29,6 @@ namespace Systemri
         public virtual Korisnik Korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stavka> Stavkas { get; set; }
+
     }
 }

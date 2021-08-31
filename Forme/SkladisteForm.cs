@@ -32,7 +32,7 @@ namespace Systemri
             if (mjerneJedinice != null) mjerneJedinice.Clear();
             mjerneJedinice = DBRepository.DohvatiMjerneJedinice();
             if(kategorije != null) kategorije.Clear();
-            kategorije = DBRepository.DohvatiKategorijeProizvoda();
+            kategorije = DBRepository.DohvatiKategorijeProizvoda().Distinct().ToList();
         }
 
         private void SkladisteForm_Load(object sender, EventArgs e)
@@ -63,12 +63,12 @@ namespace Systemri
         private void NapuniComboBoxove() 
         {
             if (comboBoxKategorija.Items != null) comboBoxKategorija.Items.Clear();
-            foreach (Kategorija_Proizvoda kategorija in DBRepository.DohvatiKategorijeProizvoda()) 
+            foreach (Kategorija_Proizvoda kategorija in kategorije) 
             {
                 comboBoxKategorija.Items.Add(kategorija);
             }
 
-            if (comboBoxSortiranje.Items != null) 
+            if (comboBoxSortiranje.Items.Count == 0) 
             {
                 comboBoxSortiranje.Items.Add("Uzlazno po nazivu");
                 comboBoxSortiranje.Items.Add("Silazno po nazivu");
@@ -89,7 +89,6 @@ namespace Systemri
             {
                 checkBoxPrikaz.Checked = false;
             }
-            if (textBoxPretrazivanje.Text != "") textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             if (comboBoxKategorija.SelectedItem != default) 
             {
                 comboBoxKategorija.SelectedItem = default;
@@ -117,46 +116,40 @@ namespace Systemri
 
         private List<Proizvod> ProvjeriCheckBoxove() 
         {
-            if (checkBoxPrikaz.Checked == false && checkBoxPopust.Checked == false)
+            List<Proizvod> proizvods = new List<Proizvod>();
+            if (checkBoxPrikaz.Checked == true && checkBoxPopust.Checked == false)
             {
-                return DBRepository.DohvatiProizvode();
-            }
-            else if (checkBoxPrikaz.Checked == true && checkBoxPopust.Checked == false)
-            {
-                return DBRepository.DohvatiProizvodeSaSmanjenomZalihom();
+                proizvods = DBRepository.DohvatiProizvodeSaSmanjenomZalihom();
             }
             else if (checkBoxPrikaz.Checked == false && checkBoxPopust.Checked == true)
             {
-                return DBRepository.DohvatiProizvodeNaPopustu();
+                proizvods = DBRepository.DohvatiProizvodeNaPopustu();
             }
             else if (checkBoxPrikaz.Checked == true && checkBoxPopust.Checked == true)
             {
-                return DBRepository.DohvatiProizvodeSaSmanjenomZalihomINaPopustu();
+                proizvods = DBRepository.DohvatiProizvodeSaSmanjenomZalihomINaPopustu();
             }
             else 
             {
-                MessageBox.Show("HAHAHAHAHA");
-                return DBRepository.DohvatiProizvode();
+                proizvods = DBRepository.DohvatiProizvode();
             }
+
+            if (comboBoxKategorija.SelectedItem != default)
+            {
+                proizvods = UpravljanjePodacima.FiltrirajProizvodePoKategoriji(comboBoxKategorija.SelectedItem as Kategorija_Proizvoda, proizvods);
+            }
+
+            return proizvods;
         }
 
         private void checkBoxPrikaz_CheckedChanged(object sender, EventArgs e)
         {
             OsvjeziDGV(ProvjeriCheckBoxove());
-            if (comboBoxKategorija.SelectedItem != default)
-            {
-                comboBoxKategorija.SelectedItem = default;
-                comboBoxKategorija.Text = "Odaberite kategoriju...";
-            }
+
         }
         private void checkBoxPopust_CheckedChanged(object sender, EventArgs e)
         {
             OsvjeziDGV(ProvjeriCheckBoxove());
-            if (comboBoxKategorija.SelectedItem != default)
-            {
-                comboBoxKategorija.SelectedItem = default;
-                comboBoxKategorija.Text = "Odaberite kategoriju...";
-            }
         }
 
         private void textBoxPretrazivanje_Enter(object sender, EventArgs e)
@@ -189,6 +182,7 @@ namespace Systemri
         private void labelPoduzece_Click(object sender, EventArgs e)
         {
             OcistiFiltere();
+            textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             OsvjeziDGV(DBRepository.DohvatiProizvode());
         }
 
@@ -268,6 +262,7 @@ namespace Systemri
                 }
                 OsvjeziDGV(DBRepository.DohvatiProizvode());
                 OcistiFiltere();
+                textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             }
             else 
             {
@@ -282,6 +277,7 @@ namespace Systemri
             DohvatiListeZaFormatiranje();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
             OcistiFiltere();
+            textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             NapuniComboBoxove();
         }
 
@@ -292,6 +288,7 @@ namespace Systemri
             DohvatiListeZaFormatiranje();
             OsvjeziDGV(DBRepository.DohvatiProizvode());
             OcistiFiltere();
+            textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
         }
 
         private void comboBoxKategorija_SelectedValueChanged(object sender, EventArgs e)

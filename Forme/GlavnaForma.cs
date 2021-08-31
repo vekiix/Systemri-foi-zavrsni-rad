@@ -14,17 +14,44 @@ namespace Systemri
     {
         private Button trenutnaTipka;
         private Form trenutnaForma;
+        private int uloga;
 
         public GlavnaForma()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            uloga = UpravljanjePodacima.VratiIDUloge(PrijavljeniKorisnik.VratiUlogu());
             trenutnaTipka = buttonPocetnaStranica;
             UpravljanjeGlavnomFormom.PromijeniTextLabele(labelUsername, PrijavljeniKorisnik.VratiKorIme());
             UpravljanjeGlavnomFormom.PromijeniTextLabele(labelVrstaKorisnika, PrijavljeniKorisnik.VratiUlogu());
             UpravljanjeGlavnomFormom.PromijeniTextLabele(labelPoduzece, PrijavljeniKorisnik.VratiImePoduzeca());
             UpravljanjeGlavnomFormom.PromijeniTextLabele(labelPodruznica,"Broj podruznice: " + PrijavljeniKorisnik.VratiIDPodruznice().ToString());
-            OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);
+            switch (uloga) 
+            {
+                case 1: 
+                    {
+                        buttonNovaTransakcija.Visible = false; 
+                        buttonUpravljanjeKorisnicima.Visible = false; 
+                        buttonUpravljanjePodruznicama.Visible = false;
+                        break;
+                    } 
+                case 2:
+                    {
+                        buttonUpravljanjeKorisnicima.Visible = false;
+                        buttonUpravljanjePodruznicama.Visible = false;
+                        break;
+                    }
+                case 3:
+                    {
+                        buttonUpravljanjePodruznicama.Visible = false;
+                        break;
+                    }
+            }
+            switch (uloga) 
+            {
+                case 4: OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);break;
+                default: OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka); break;
+            }
         }
 
         private void OtvoriFormu(Form childForm,object btnSender) 
@@ -40,7 +67,6 @@ namespace Systemri
                 UpravljanjeGlavnomFormom.AktivirajTipku(trenutnaTipka);
                 trenutnaForma = childForm;
                 UpravljanjeGlavnomFormom.AktivirajFormu(trenutnaForma, panelForma);
-
             }
         }
 
@@ -53,7 +79,7 @@ namespace Systemri
 
         private void buttonSkladiste_Click(object sender, EventArgs e)
         {
-            OtvoriFormu(new SkladisteForm(), sender);
+            OtvoriFormu(new SkladisteForm(), sender);        
         }
 
         private void buttonNovaTransakcija_Click(object sender, EventArgs e)
@@ -69,6 +95,24 @@ namespace Systemri
         private void buttonOdjava_Click(object sender, EventArgs e)
         {      
             this.Close();          
+        }
+
+        private void buttonUpravljanjePodruznicama_Click(object sender, EventArgs e)
+        {
+            UpravljanjePodruznicamaForm upravljanjePodruznicamaForm = new UpravljanjePodruznicamaForm();
+            OtvoriFormu(upravljanjePodruznicamaForm, sender);
+            upravljanjePodruznicamaForm.PromijenjenaPodruznica += new EventHandler(PromijeniIDPodruznice);
+        }
+
+        void PromijeniIDPodruznice(object sender, EventArgs e)
+        {
+            UpravljanjeGlavnomFormom.PromijeniTextLabele(labelPodruznica, "Broj podruznice: " + PrijavljeniKorisnik.VratiIDPodruznice().ToString());
+        }
+
+        private void labelPromijeni_Click(object sender, EventArgs e)
+        {
+            PromijeniLozinkuForm form = new PromijeniLozinkuForm();
+            form.ShowDialog();
         }
     }
 }
