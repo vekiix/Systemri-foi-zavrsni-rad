@@ -213,6 +213,12 @@
     <Compile Include="Racun.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SkladistarPocetnaStranicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkladistarPocetnaStranicaForm.Designer.cs">
+      <DependentUpon>SkladistarPocetnaStranicaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Stavka.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
@@ -246,6 +252,15 @@
     <Compile Include="Forme\UpravljanjePodruznicamaForm.Designer.cs">
       <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlagajnikPocetnaStranicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlagajnikPocetnaStranicaForm.Designer.cs">
+      <DependentUpon>BlagajnikPocetnaStranicaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BlagajnikPocetnaStranicaForm.resx">
+      <DependentUpon>BlagajnikPocetnaStranicaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajPodruznicuForm.resx">
       <DependentUpon>DodajPodruznicuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +326,9 @@
       <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Izvjesca\RacunRDLC.rdlc" />
+    <EmbeddedResource Include="SkladistarPocetnaStranicaForm.resx">
+      <DependentUpon>SkladistarPocetnaStranicaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

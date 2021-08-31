@@ -60,7 +60,6 @@ namespace Systemri
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.chartProizvoda = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.buttonPregledaj = new System.Windows.Forms.Button();
             this.buttonStorniraj = new System.Windows.Forms.Button();
@@ -361,7 +360,6 @@ namespace Systemri
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.chartProizvoda);
-            this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Location = new System.Drawing.Point(700, 77);
             this.panel5.Name = "panel5";
@@ -402,32 +400,21 @@ namespace Systemri
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartProizvoda.Series.Add(series1);
-            this.chartProizvoda.Size = new System.Drawing.Size(287, 199);
+            this.chartProizvoda.Size = new System.Drawing.Size(287, 236);
             this.chartProizvoda.TabIndex = 3;
             this.chartProizvoda.Text = "Proizvodi";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.label14.Location = new System.Drawing.Point(22, 279);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 17);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Grafikon";
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(20, 10);
+            this.label16.Location = new System.Drawing.Point(3, 10);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(307, 77);
+            this.label16.Size = new System.Drawing.Size(324, 77);
             this.label16.TabIndex = 0;
-            this.label16.Text = "Grafikon proizvoda za protekla tri mjeseca:";
+            this.label16.Text = "Grafikon prodanih proizvoda po kategorijama za protekla 3 mjeseca";
             // 
             // buttonPregledaj
             // 
@@ -531,7 +518,6 @@ namespace Systemri
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProizvoda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacuni)).EndInit();
             this.ResumeLayout(false);
@@ -564,7 +550,6 @@ namespace Systemri
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button buttonPregledaj;
         private System.Windows.Forms.Button buttonStorniraj;

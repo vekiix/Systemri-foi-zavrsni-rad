@@ -38,7 +38,6 @@ namespace Systemri
             dateTimePickerUgovorOd.Value = (DateTime)korisnik.UgovorOd;
             dateTimePickerDatumRodenja.Value = (DateTime)korisnik.Datum_rodenja;
             if (korisnik.UgovorDo != null) dateTimePickerUgovorDo.Value = (DateTime)korisnik.UgovorDo;
-            comboBoxPodruznica.SelectedIndex = comboBoxPodruznica.FindStringExact(korisnik.Podruznica_ID.ToString());
             comboBoxUloga.SelectedIndex = comboBoxUloga.FindStringExact(UpravljanjePodacima.VratiUlogu(korisnik.Uloga_ID));  
         }
 
@@ -47,10 +46,6 @@ namespace Systemri
             foreach (Uloga item in DBRepository.DohvatiUloge()) 
             {
                 comboBoxUloga.Items.Add(item.ToString());
-            }
-            foreach (Podruznica item in DBRepository.DohvatiPodruznice()) 
-            {
-                comboBoxPodruznica.Items.Add(item.ToString());
             }
         }
 
@@ -136,8 +131,7 @@ namespace Systemri
             if (textBoxIme.Text != "Unesite korisnicko ime..." && textBoxPrezime.Text != null
                         && textBoxKorisnickoIme.Text != "Unesite korisnicko ime..." && textBoxMjestoStanovanja.Text != "Unesite mjesto stanovanja..."
                         && textBoxOIB.Text != "Unesite OIB..." && textBoxEmail.Text != "Unesite email..."
-                        && textBoxKontakt.Text != "Unesite kontakt..." && comboBoxPodruznica.Text != "Odaberite ID"
-                        && comboBoxUloga.Text != "Odaberite ulogu")
+                        && textBoxKontakt.Text != "Unesite kontakt..." && comboBoxUloga.Text != "Odaberite ulogu")
             {
                try
                {
@@ -153,7 +147,7 @@ namespace Systemri
                         Datum_rodenja = dateTimePickerDatumRodenja.Value,
                         UgovorOd = dateTimePickerUgovorOd.Value,
                         Uloga_ID = UpravljanjePodacima.VratiIDUloge(comboBoxUloga.SelectedItem.ToString()),
-                        Podruznica_ID = int.Parse(comboBoxPodruznica.Text),
+                        Podruznica_ID = PrijavljeniKorisnik.VratiIDPodruznice(),
                    };
 
                    if (promjenjen) noviKorisnik.UgovorDo = dateTimePickerUgovorDo.Value;

@@ -49,8 +49,17 @@ namespace Systemri
             }
             switch (uloga) 
             {
+                case 1: OtvoriFormu(new SkladistarPocetnaStranicaForm(), trenutnaTipka);break;
+                case 2:
+                    {
+                        BlagajnikPocetnaStranicaForm blagajnikPocetna = new BlagajnikPocetnaStranicaForm();
+                        OtvoriFormu(blagajnikPocetna, trenutnaTipka);
+                        blagajnikPocetna.NovaTransakcija += new EventHandler(OtvoriNovuTransakciju);
+                        break;
+                    } 
+                case 3: OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);break;
                 case 4: OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka);break;
-                default: OtvoriFormu(new AdministratorPocetnaStranicaForm(), trenutnaTipka); break;
+                default: OtvoriFormu(new SkladistarPocetnaStranicaForm(), trenutnaTipka); break;
             }
         }
 
@@ -74,7 +83,20 @@ namespace Systemri
 
         private void buttonPocetnaStranica_Click(object sender, EventArgs e)
         {
-            OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender);
+            switch (uloga)
+            {
+                case 1: OtvoriFormu(new SkladistarPocetnaStranicaForm(), sender); break;
+                case 2: 
+                    {
+                        BlagajnikPocetnaStranicaForm blagajnikPocetna = new BlagajnikPocetnaStranicaForm();
+                        OtvoriFormu(blagajnikPocetna, sender); 
+                        blagajnikPocetna.NovaTransakcija += new EventHandler(OtvoriNovuTransakciju);
+                        break;
+                    } 
+                case 3: OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender); break;
+                case 4: OtvoriFormu(new AdministratorPocetnaStranicaForm(), sender); break;
+                default: OtvoriFormu(new SkladistarPocetnaStranicaForm(), sender); break;
+            }
         }
 
         private void buttonSkladiste_Click(object sender, EventArgs e)
@@ -113,6 +135,11 @@ namespace Systemri
         {
             PromijeniLozinkuForm form = new PromijeniLozinkuForm();
             form.ShowDialog();
+        }
+
+        private void OtvoriNovuTransakciju(object sender, EventArgs e)
+        {
+            buttonNovaTransakcija.PerformClick();
         }
     }
 }

@@ -53,8 +53,6 @@ namespace Systemri
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxUloga = new System.Windows.Forms.ComboBox();
             this.labelNaslov = new System.Windows.Forms.Label();
-            this.comboBoxPodruznica = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.buttonOdustani = new System.Windows.Forms.Button();
             this.buttonDodaj = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -132,7 +130,7 @@ namespace Systemri
             this.textBoxKorisnickoIme.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxKorisnickoIme.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKorisnickoIme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBoxKorisnickoIme.Location = new System.Drawing.Point(590, 269);
+            this.textBoxKorisnickoIme.Location = new System.Drawing.Point(592, 130);
             this.textBoxKorisnickoIme.Multiline = true;
             this.textBoxKorisnickoIme.Name = "textBoxKorisnickoIme";
             this.textBoxKorisnickoIme.Size = new System.Drawing.Size(174, 22);
@@ -146,7 +144,7 @@ namespace Systemri
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(402, 269);
+            this.label3.Location = new System.Drawing.Point(402, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 24);
             this.label3.TabIndex = 21;
@@ -369,32 +367,6 @@ namespace Systemri
             this.labelNaslov.Text = "Dodaj korisnika";
             this.labelNaslov.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // comboBoxPodruznica
-            // 
-            this.comboBoxPodruznica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.comboBoxPodruznica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxPodruznica.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPodruznica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.comboBoxPodruznica.FormattingEnabled = true;
-            this.comboBoxPodruznica.Location = new System.Drawing.Point(673, 128);
-            this.comboBoxPodruznica.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBoxPodruznica.MaxDropDownItems = 12;
-            this.comboBoxPodruznica.Name = "comboBoxPodruznica";
-            this.comboBoxPodruznica.Size = new System.Drawing.Size(93, 23);
-            this.comboBoxPodruznica.TabIndex = 41;
-            this.comboBoxPodruznica.Text = "Odaberite ID";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label12.Location = new System.Drawing.Point(402, 128);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 24);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "ID podruznice:";
-            // 
             // buttonOdustani
             // 
             this.buttonOdustani.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -445,8 +417,6 @@ namespace Systemri
             this.Controls.Add(this.label13);
             this.Controls.Add(this.buttonOdustani);
             this.Controls.Add(this.buttonDodaj);
-            this.Controls.Add(this.comboBoxPodruznica);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.labelNaslov);
             this.Controls.Add(this.comboBoxUloga);
             this.Controls.Add(this.label11);
@@ -507,8 +477,6 @@ namespace Systemri
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxUloga;
         private System.Windows.Forms.Label labelNaslov;
-        private System.Windows.Forms.ComboBox comboBoxPodruznica;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonOdustani;
         private System.Windows.Forms.Button buttonDodaj;
         private System.Windows.Forms.Label label13;

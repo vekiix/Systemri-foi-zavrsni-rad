@@ -33,7 +33,7 @@ namespace Systemri
 
         private void OsvjeziDGV() 
         {         
-            dataGridViewRacuni.DataSource = DBRepository.DohvatiRacune();
+            dataGridViewRacuni.DataSource = DBRepository.DohvatiRacune().OrderByDescending(r => r.ID_racuna).ToList();
             labelDnevniPromet.Text = DBRepository.IzracunajDnevniPromet().ToString() + " kn";
             labelMjesecniPromet.Text = DBRepository.IzracunajMjesecniPromet().ToString() + " kn";
             labelTjedniPromet.Text = DBRepository.IzracunajTjedniPromet().ToString() + " kn";
