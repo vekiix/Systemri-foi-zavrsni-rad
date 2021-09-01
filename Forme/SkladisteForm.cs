@@ -108,7 +108,7 @@ namespace Systemri
                     case "Silazno po cijeni": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Cijena_proizvoda).ToList(); break;
                     case "Uzlazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.Kolicina_proizvoda).ToList(); break;
                     case "Silazno po kolicini": proizvods = (List<Proizvod>)proizvods.OrderByDescending(p => p.Kolicina_proizvoda).ToList(); break;
-                    default: break;
+                    default: proizvods = (List<Proizvod>)proizvods.OrderBy(p => p.ID_proizvoda).ToList();break;
                 }
             }
             dataGridViewProizvodi.DataSource = proizvods;
@@ -182,6 +182,8 @@ namespace Systemri
         private void labelPoduzece_Click(object sender, EventArgs e)
         {
             OcistiFiltere();
+            comboBoxSortiranje.SelectedItem = default;
+            comboBoxSortiranje.Text = "Odaberite nacin sortiranja...";
             textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
             OsvjeziDGV(DBRepository.DohvatiProizvode());
         }

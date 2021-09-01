@@ -118,7 +118,7 @@ namespace Systemri
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DodajPodruznicuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DodajPodruznicuForm";
+            this.Text = "Dodaj podruznicu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

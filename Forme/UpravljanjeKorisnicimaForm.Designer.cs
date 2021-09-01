@@ -106,6 +106,8 @@ namespace Systemri
             this.buttonDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDodaj.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDodaj.ForeColor = System.Drawing.Color.White;
+            this.buttonDodaj.Image = global::Systemri.Properties.Resources.icons8_male_user_24;
+            this.buttonDodaj.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDodaj.Location = new System.Drawing.Point(695, 593);
             this.buttonDodaj.Name = "buttonDodaj";
             this.buttonDodaj.Size = new System.Drawing.Size(312, 37);

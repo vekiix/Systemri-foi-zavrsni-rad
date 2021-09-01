@@ -302,6 +302,7 @@ namespace Systemri
             this.Controls.Add(this.panelForma);
             this.Controls.Add(this.panelNavigacija);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GlavnaForma";
             this.Text = "Systemri";
             this.panelNavigacija.ResumeLayout(false);

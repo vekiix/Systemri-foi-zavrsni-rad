@@ -25,6 +25,9 @@ namespace Systemri
             dataGridViewRacuni.Columns[4].HeaderText = "Ukupan iznos";
             dataGridViewRacuni.Columns[5].Visible = false;
             dataGridViewRacuni.Columns[6].Visible = false;
+            this.chartProizvoda.BackColor = Color.FromArgb(37, 42, 64);
+            this.chartProizvoda.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.FromArgb(37, 42, 64);
+            this.chartProizvoda.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.FromArgb(37, 42, 64);
         }
 
         private void NapuniPodacima() 

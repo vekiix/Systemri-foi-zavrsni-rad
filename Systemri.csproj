@@ -213,10 +213,10 @@
     <Compile Include="Racun.cs">
       <DependentUpon>SystemriModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SkladistarPocetnaStranicaForm.cs">
+    <Compile Include="Forme\SkladistarPocetnaStranicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SkladistarPocetnaStranicaForm.Designer.cs">
+    <Compile Include="Forme\SkladistarPocetnaStranicaForm.Designer.cs">
       <DependentUpon>SkladistarPocetnaStranicaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -252,13 +252,13 @@
     <Compile Include="Forme\UpravljanjePodruznicamaForm.Designer.cs">
       <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlagajnikPocetnaStranicaForm.cs">
+    <Compile Include="Forme\BlagajnikPocetnaStranicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BlagajnikPocetnaStranicaForm.Designer.cs">
+    <Compile Include="Forme\BlagajnikPocetnaStranicaForm.Designer.cs">
       <DependentUpon>BlagajnikPocetnaStranicaForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BlagajnikPocetnaStranicaForm.resx">
+    <EmbeddedResource Include="Forme\BlagajnikPocetnaStranicaForm.resx">
       <DependentUpon>BlagajnikPocetnaStranicaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forme\DodajPodruznicuForm.resx">
@@ -326,7 +326,7 @@
       <DependentUpon>UpravljanjePodruznicamaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Izvjesca\RacunRDLC.rdlc" />
-    <EmbeddedResource Include="SkladistarPocetnaStranicaForm.resx">
+    <EmbeddedResource Include="Forme\SkladistarPocetnaStranicaForm.resx">
       <DependentUpon>SkladistarPocetnaStranicaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
