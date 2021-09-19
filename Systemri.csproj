@@ -377,6 +377,23 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\alpha_s_circle_icon_135969.ico" />
+    <None Include="Resources\icons8-company-26 %281%29.png" />
+    <Content Include="Resources\icons8-discount-26.png" />
+    <None Include="Resources\icons8-home-261.png" />
+    <Content Include="Resources\icons8-list-26.png" />
+    <None Include="Resources\icons8-list-261.png" />
+    <Content Include="Resources\icons8-logout-rounded-up-26.png" />
+    <None Include="Resources\icons8-logout-rounded-up-261.png" />
+    <None Include="Resources\icons8-person-1281.png" />
+    <Content Include="Resources\icons8-product-26.png" />
+    <Content Include="Resources\icons8-transaction-26.png" />
+    <None Include="Resources\icons8-transaction-261.png" />
+    <None Include="Resources\icons8-user-100.png" />
+    <None Include="Resources\icons8-user-50.png" />
+    <Content Include="Resources\icons8-user-menu-male-26.png" />
+    <None Include="Resources\icons8-user-menu-male-261.png" />
+    <Content Include="Resources\in_progress_icon_178960.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

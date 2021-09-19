@@ -122,9 +122,9 @@ namespace Systemri
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
             this.label4.Location = new System.Drawing.Point(16, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(220, 17);
+            this.label4.Size = new System.Drawing.Size(194, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Ukupan promet u posljednja 24 sata";
+            this.label4.Text = "Ukupan promet za tekuci datum";
             // 
             // labelDnevniPromet
             // 

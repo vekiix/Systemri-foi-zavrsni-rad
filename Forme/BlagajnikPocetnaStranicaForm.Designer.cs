@@ -141,7 +141,7 @@ namespace Systemri
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(3, 21);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(718, 77);
+            this.label13.Size = new System.Drawing.Size(739, 77);
             this.label13.TabIndex = 0;
             this.label13.Text = "Broj proizvoda sa smanjenom zalihom:";
             // 
@@ -179,9 +179,9 @@ namespace Systemri
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
             this.label4.Location = new System.Drawing.Point(19, 104);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(220, 17);
+            this.label4.Size = new System.Drawing.Size(194, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Ukupan promet u posljednja 24 sata";
+            this.label4.Text = "Ukupan promet za tekuci datum";
             // 
             // labelDnevniPromet
             // 
@@ -243,9 +243,9 @@ namespace Systemri
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(19, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(220, 17);
+            this.label3.Size = new System.Drawing.Size(229, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Ukupan promet u posljednja 24 sata";
+            this.label3.Text = "Iznos posljednjeg racuna u podruznici";
             // 
             // labelIznosPosljednjegRacuna
             // 
@@ -308,7 +308,7 @@ namespace Systemri
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartProizvoda.Legends.Add(legend1);
-            this.chartProizvoda.Location = new System.Drawing.Point(25, 71);
+            this.chartProizvoda.Location = new System.Drawing.Point(25, 43);
             this.chartProizvoda.Name = "chartProizvoda";
             this.chartProizvoda.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartProizvoda.PaletteCustomColors = new System.Drawing.Color[] {
@@ -320,7 +320,7 @@ namespace Systemri
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartProizvoda.Series.Add(series1);
-            this.chartProizvoda.Size = new System.Drawing.Size(524, 196);
+            this.chartProizvoda.Size = new System.Drawing.Size(524, 216);
             this.chartProizvoda.TabIndex = 3;
             this.chartProizvoda.Text = "Proizvodi";
             // 

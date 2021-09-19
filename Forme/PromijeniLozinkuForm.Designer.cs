@@ -99,9 +99,9 @@ namespace Systemri
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label1.Location = new System.Drawing.Point(12, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 24);
+            this.label1.Size = new System.Drawing.Size(191, 24);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Ponovljena lozinka";
+            this.label1.Text = "Ponovljena lozinka:";
             // 
             // buttonOdustani
             // 
@@ -146,9 +146,10 @@ namespace Systemri
             this.Controls.Add(this.textBoxLozinka);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PromijeniLozinkuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PromijeniLozinkuForm";
+            this.Text = "Promijeni lozinku";
             this.ResumeLayout(false);
             this.PerformLayout();
 

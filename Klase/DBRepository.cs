@@ -84,6 +84,16 @@ namespace Systemri
             }
         }
 
+        internal static string VratiAdresuPodruznice() 
+        {
+            int id = PrijavljeniKorisnik.VratiIDPodruznice();
+            using (var db = new SystemriDBEntities()) 
+            {
+                return (from p in db.Podruznicas
+                       where p.ID_podruznica == id
+                       select p.Adresa_podruznice).FirstOrDefault();
+            }
+        }
         internal static List<Klase.PodaciGrafikon> DohvatiKategorijeIBrojProdanihProizvodaZaProteklaTriMjeseca() 
         {
             using (var db = new SystemriDBEntities()) 
@@ -769,9 +779,13 @@ namespace Systemri
         {
             using (var db = new SystemriDBEntities()) 
             {
+                int idUloge = UpravljanjePodacima.VratiIDUloge(PrijavljeniKorisnik.VratiUlogu());
                 int idKorisnik = PrijavljeniKorisnik.VratiIDKorisnika();
+                int idPodruznice = PrijavljeniKorisnik.VratiIDPodruznice();
                 return (from k in db.Korisniks
-                        where k.Ime.Contains(text) && k.ID_korisnik != idKorisnik || k.Prezime.Contains(text) && k.ID_korisnik != idKorisnik || k.Korisnicko_ime.Contains(text) && k.ID_korisnik != idKorisnik
+                        where k.Ime.Contains(text) && k.ID_korisnik != idKorisnik && k.Podruznica_ID == idPodruznice && k.Uloga_ID < idUloge
+                        || k.Prezime.Contains(text) && k.ID_korisnik != idKorisnik && k.Podruznica_ID == idPodruznice && k.Uloga_ID < idUloge
+                        || k.Korisnicko_ime.Contains(text) && k.ID_korisnik != idKorisnik && k.Podruznica_ID == idPodruznice && k.Uloga_ID < idUloge
                         select k).ToList();
             }
         }

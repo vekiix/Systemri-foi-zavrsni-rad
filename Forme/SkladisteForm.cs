@@ -202,10 +202,12 @@ namespace Systemri
                             case "0":
                                 e.Value = "Nije na popustu";
                                 e.CellStyle.BackColor = Color.PaleVioletRed;
+                                e.CellStyle.SelectionBackColor = Color.PaleVioletRed;
                                 break;
                             case "1":
                                 e.Value = "Na popustu";
                                 e.CellStyle.BackColor = Color.LimeGreen;
+                                e.CellStyle.SelectionBackColor = Color.LimeGreen;
                                 break;
                             default:
                                 e.Value = "Greska";
@@ -291,6 +293,7 @@ namespace Systemri
             OsvjeziDGV(DBRepository.DohvatiProizvode());
             OcistiFiltere();
             textBoxPretrazivanje.Text = "Pretrazite proizvod po imenu...";
+            NapuniComboBoxove();
         }
 
         private void comboBoxKategorija_SelectedValueChanged(object sender, EventArgs e)

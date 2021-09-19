@@ -44,8 +44,8 @@ namespace Systemri
             this.labelPromijeni = new System.Windows.Forms.Label();
             this.labelVrstaKorisnika = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForma = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelNavigacija.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelKorisnik.SuspendLayout();
@@ -76,7 +76,7 @@ namespace Systemri
             this.buttonUpravljanjePodruznicama.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpravljanjePodruznicama.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpravljanjePodruznicama.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonUpravljanjePodruznicama.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpravljanjePodruznicama.Image")));
+            this.buttonUpravljanjePodruznicama.Image = global::Systemri.Properties.Resources.icons8_company_26__1_;
             this.buttonUpravljanjePodruznicama.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpravljanjePodruznicama.Location = new System.Drawing.Point(0, 374);
             this.buttonUpravljanjePodruznicama.Name = "buttonUpravljanjePodruznicama";
@@ -131,7 +131,7 @@ namespace Systemri
             this.buttonOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOdjava.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOdjava.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonOdjava.Image = ((System.Drawing.Image)(resources.GetObject("buttonOdjava.Image")));
+            this.buttonOdjava.Image = global::Systemri.Properties.Resources.icons8_logout_rounded_up_26;
             this.buttonOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonOdjava.Location = new System.Drawing.Point(0, 621);
             this.buttonOdjava.Name = "buttonOdjava";
@@ -151,7 +151,7 @@ namespace Systemri
             this.buttonUpravljanjeKorisnicima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpravljanjeKorisnicima.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpravljanjeKorisnicima.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonUpravljanjeKorisnicima.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpravljanjeKorisnicima.Image")));
+            this.buttonUpravljanjeKorisnicima.Image = global::Systemri.Properties.Resources.icons8_user_menu_male_26;
             this.buttonUpravljanjeKorisnicima.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpravljanjeKorisnicima.Location = new System.Drawing.Point(0, 314);
             this.buttonUpravljanjeKorisnicima.Name = "buttonUpravljanjeKorisnicima";
@@ -171,7 +171,7 @@ namespace Systemri
             this.buttonNovaTransakcija.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNovaTransakcija.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNovaTransakcija.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonNovaTransakcija.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovaTransakcija.Image")));
+            this.buttonNovaTransakcija.Image = global::Systemri.Properties.Resources.icons8_transaction_26;
             this.buttonNovaTransakcija.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNovaTransakcija.Location = new System.Drawing.Point(0, 254);
             this.buttonNovaTransakcija.Name = "buttonNovaTransakcija";
@@ -191,7 +191,7 @@ namespace Systemri
             this.buttonSkladiste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSkladiste.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSkladiste.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonSkladiste.Image = ((System.Drawing.Image)(resources.GetObject("buttonSkladiste.Image")));
+            this.buttonSkladiste.Image = global::Systemri.Properties.Resources.icons8_list_26;
             this.buttonSkladiste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSkladiste.Location = new System.Drawing.Point(0, 194);
             this.buttonSkladiste.Name = "buttonSkladiste";
@@ -211,7 +211,7 @@ namespace Systemri
             this.buttonPocetnaStranica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPocetnaStranica.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPocetnaStranica.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonPocetnaStranica.Image = ((System.Drawing.Image)(resources.GetObject("buttonPocetnaStranica.Image")));
+            this.buttonPocetnaStranica.Image = global::Systemri.Properties.Resources.icons8_home_26;
             this.buttonPocetnaStranica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPocetnaStranica.Location = new System.Drawing.Point(0, 134);
             this.buttonPocetnaStranica.Name = "buttonPocetnaStranica";
@@ -275,17 +275,6 @@ namespace Systemri
             this.labelUsername.Text = ".";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelForma
             // 
             this.panelForma.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -293,6 +282,18 @@ namespace Systemri
             this.panelForma.Name = "panelForma";
             this.panelForma.Size = new System.Drawing.Size(1024, 681);
             this.panelForma.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::Systemri.Properties.Resources.icons8_user_50;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // GlavnaForma
             // 

@@ -36,8 +36,8 @@ namespace Systemri
             this.textBoxPretrazivanje = new System.Windows.Forms.TextBox();
             this.buttonIzmijeni = new System.Windows.Forms.Button();
             this.buttonObrisi = new System.Windows.Forms.Button();
-            this.buttonDodaj = new System.Windows.Forms.Button();
             this.dataGridViewKorisnici = new System.Windows.Forms.DataGridView();
+            this.buttonDodaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,23 +99,6 @@ namespace Systemri
             this.buttonObrisi.UseVisualStyleBackColor = false;
             this.buttonObrisi.Click += new System.EventHandler(this.buttonObrisi_Click);
             // 
-            // buttonDodaj
-            // 
-            this.buttonDodaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDodaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.buttonDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDodaj.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDodaj.ForeColor = System.Drawing.Color.White;
-            this.buttonDodaj.Image = global::Systemri.Properties.Resources.icons8_male_user_24;
-            this.buttonDodaj.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDodaj.Location = new System.Drawing.Point(695, 593);
-            this.buttonDodaj.Name = "buttonDodaj";
-            this.buttonDodaj.Size = new System.Drawing.Size(312, 37);
-            this.buttonDodaj.TabIndex = 21;
-            this.buttonDodaj.Text = "Dodaj novog korisnika";
-            this.buttonDodaj.UseVisualStyleBackColor = false;
-            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
-            // 
             // dataGridViewKorisnici
             // 
             this.dataGridViewKorisnici.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -126,7 +109,7 @@ namespace Systemri
             this.dataGridViewKorisnici.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewKorisnici.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(111)))));
@@ -155,6 +138,23 @@ namespace Systemri
             this.dataGridViewKorisnici.Size = new System.Drawing.Size(981, 487);
             this.dataGridViewKorisnici.TabIndex = 22;
             this.dataGridViewKorisnici.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewKorisnici_CellFormatting);
+            // 
+            // buttonDodaj
+            // 
+            this.buttonDodaj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDodaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.buttonDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDodaj.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDodaj.ForeColor = System.Drawing.Color.White;
+            this.buttonDodaj.Image = global::Systemri.Properties.Resources.icons8_male_user_24;
+            this.buttonDodaj.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDodaj.Location = new System.Drawing.Point(695, 593);
+            this.buttonDodaj.Name = "buttonDodaj";
+            this.buttonDodaj.Size = new System.Drawing.Size(312, 37);
+            this.buttonDodaj.TabIndex = 21;
+            this.buttonDodaj.Text = "Dodaj novog korisnika";
+            this.buttonDodaj.UseVisualStyleBackColor = false;
+            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
             // 
             // UpravljanjeKorisnicimaForm
             // 

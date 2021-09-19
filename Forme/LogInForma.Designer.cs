@@ -80,9 +80,8 @@ namespace Systemri.Forme
             this.textBoxKorisnickoIme.Font = new System.Drawing.Font("Bahnschrift", 12F);
             this.textBoxKorisnickoIme.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxKorisnickoIme.Location = new System.Drawing.Point(64, 210);
-            this.textBoxKorisnickoIme.Multiline = true;
             this.textBoxKorisnickoIme.Name = "textBoxKorisnickoIme";
-            this.textBoxKorisnickoIme.Size = new System.Drawing.Size(205, 25);
+            this.textBoxKorisnickoIme.Size = new System.Drawing.Size(205, 20);
             this.textBoxKorisnickoIme.TabIndex = 8;
             this.textBoxKorisnickoIme.Text = "username";
             this.textBoxKorisnickoIme.Enter += new System.EventHandler(this.textBoxKorisnickoIme_Enter);
@@ -95,9 +94,8 @@ namespace Systemri.Forme
             this.textBoxLozinka.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLozinka.ForeColor = System.Drawing.Color.DarkGray;
             this.textBoxLozinka.Location = new System.Drawing.Point(64, 273);
-            this.textBoxLozinka.Multiline = true;
             this.textBoxLozinka.Name = "textBoxLozinka";
-            this.textBoxLozinka.Size = new System.Drawing.Size(205, 25);
+            this.textBoxLozinka.Size = new System.Drawing.Size(205, 20);
             this.textBoxLozinka.TabIndex = 9;
             this.textBoxLozinka.Text = "password";
             this.textBoxLozinka.Enter += new System.EventHandler(this.textBoxLozinka_Enter);

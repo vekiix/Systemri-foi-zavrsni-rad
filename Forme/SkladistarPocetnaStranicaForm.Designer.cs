@@ -137,9 +137,9 @@ namespace Systemri
             this.labelBrojProizvodaSaSmanjenomZalihom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBrojProizvodaSaSmanjenomZalihom.Font = new System.Drawing.Font("Microsoft Sans Serif", 54F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBrojProizvodaSaSmanjenomZalihom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.labelBrojProizvodaSaSmanjenomZalihom.Location = new System.Drawing.Point(746, 21);
+            this.labelBrojProizvodaSaSmanjenomZalihom.Location = new System.Drawing.Point(734, 21);
             this.labelBrojProizvodaSaSmanjenomZalihom.Name = "labelBrojProizvodaSaSmanjenomZalihom";
-            this.labelBrojProizvodaSaSmanjenomZalihom.Size = new System.Drawing.Size(161, 82);
+            this.labelBrojProizvodaSaSmanjenomZalihom.Size = new System.Drawing.Size(173, 82);
             this.labelBrojProizvodaSaSmanjenomZalihom.TabIndex = 1;
             this.labelBrojProizvodaSaSmanjenomZalihom.Text = "123";
             this.labelBrojProizvodaSaSmanjenomZalihom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,7 +152,7 @@ namespace Systemri
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(3, 21);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(725, 77);
+            this.label13.Size = new System.Drawing.Size(741, 77);
             this.label13.TabIndex = 0;
             this.label13.Text = "Broj proizvoda sa smanjenom zalihom:";
             // 

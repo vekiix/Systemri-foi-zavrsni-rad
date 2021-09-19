@@ -33,6 +33,7 @@ namespace Systemri
             comboBoxMjerneJedinice.SelectedIndex = comboBoxMjerneJedinice.FindStringExact(DBRepository.DohvatiImeMjerneJedinice(stariProizvod.Mjerna_jedinica_ID).ToString());
             label1.Text = "Izmijeni proizvod";
             buttonDodaj.Text = "Izmijeni proizvod";
+            this.Text = "Izmijeni proizvod";
         }
 
         private void buttonOdustani_Click(object sender, EventArgs e)
@@ -285,7 +286,7 @@ namespace Systemri
                     }
                     else 
                     {
-                        MessageBox.Show("Niste unijeli sve podatke!");
+                        MessageBox.Show("Jedan od combo box unosa nije ispravan!");
                     }     
                 }
                 catch (Exception ex)

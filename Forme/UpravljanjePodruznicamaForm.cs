@@ -23,7 +23,7 @@ namespace Systemri
         {
             dataGridViewPodruznice.DataSource = podruznice;
             dataGridViewPodruznice.Columns[0].HeaderText = "ID podruznice";
-            dataGridViewPodruznice.Columns[2].HeaderText = "Adresa podruznice";
+            dataGridViewPodruznice.Columns[1].HeaderText = "Adresa podruznice";
             dataGridViewPodruznice.Columns[2].HeaderText = "Naziv poduzeca";
             dataGridViewPodruznice.Columns[3].Visible = false;
             dataGridViewPodruznice.Columns[4].Visible = false;

@@ -26,6 +26,7 @@ namespace Systemri
             dataGridViewKorisnici.Columns[11].HeaderText = "Kraj ugovora";
             dataGridViewKorisnici.Columns[12].HeaderText = "Uloga";
             dataGridViewKorisnici.Columns[13].HeaderText = "ID podruznice";
+            dataGridViewKorisnici.Columns[13].Visible = false;
             dataGridViewKorisnici.Columns[14].Visible = false;
             dataGridViewKorisnici.Columns[15].Visible = false;
             dataGridViewKorisnici.Columns[16].Visible = false;

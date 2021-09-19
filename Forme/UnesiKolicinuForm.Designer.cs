@@ -101,9 +101,10 @@ namespace Systemri.Forme
             this.Controls.Add(this.buttonDodaj);
             this.Controls.Add(this.textBoxPopust);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UnesiKolicinuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UnesiKolicinuForm";
+            this.Text = "Unos količine";
             this.ResumeLayout(false);
             this.PerformLayout();
 

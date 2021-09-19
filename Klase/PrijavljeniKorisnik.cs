@@ -32,16 +32,21 @@ namespace Systemri
             }
         }
 
+        internal static void PohraniPodatke(Korisnik korisnik) 
+        {
+            ID_korisnik = korisnik.ID_korisnik;
+            korisnicko_ime = korisnik.Korisnicko_ime;
+            podruznica_ID = korisnik.Podruznica_ID;
+            uloga_ID = korisnik.Uloga_ID;
+            ime_poduzeca = DBRepository.DohvatiImePoduzeca();
+        }
+
         public static bool Prijava(string korime, string lozinka) 
         {
             Korisnik korisnik = DBRepository.DohvatiKorisnika(korime, SHA(lozinka));
             if (korisnik != null) 
             {
-                ID_korisnik = korisnik.ID_korisnik;
-                korisnicko_ime = korisnik.Korisnicko_ime;
-                podruznica_ID = korisnik.Podruznica_ID;
-                uloga_ID = korisnik.Uloga_ID;
-                ime_poduzeca = DBRepository.DohvatiImePoduzeca();
+                PohraniPodatke(korisnik);
                 return true;         
             }
             else throw new Exception("Neispravno korisnicko ime ili lozinka!");

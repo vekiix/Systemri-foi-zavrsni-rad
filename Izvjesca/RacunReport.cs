@@ -26,16 +26,17 @@ namespace Systemri.Izvjesca
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("IDPodruznice", PrijavljeniKorisnik.VratiIDPodruznice().ToString()));
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("DatumRacuna", racun.Datum.ToString("dd-MM-yyyy")));
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("IDRacuna", racun.ID_racuna.ToString()));
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Vrijeme", racun.Vrijeme.ToString()));
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("IDKorisnik", PrijavljeniKorisnik.VratiIDKorisnika().ToString()));
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("KorisnickoIme", PrijavljeniKorisnik.VratiKorIme()));
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter("UkupanIznosRacuna", racun.Ukupan_iznos.ToString()));
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter("Adresa", DBRepository.VratiAdresuPodruznice()));
 
 
-
-            ReportDataSource rds = new ReportDataSource("DataSetStavka", DBRepository.DohvatiStavke(racun));
+            ReportDataSource rds = new ReportDataSource("DataSetStavka", DBRepository.DohvatiStavke(racun).OrderByDescending(x => x.Proizvod_ID));
             this.reportViewer1.LocalReport.DataSources.Add(rds);
 
-            ReportDataSource ds1 = new ReportDataSource("DataSetProizvodi", DBRepository.DohvatiProizvodeSaRacuna(racun));
+            ReportDataSource ds1 = new ReportDataSource("DataSetProizvodi", DBRepository.DohvatiProizvodeSaRacuna(racun).OrderByDescending(x => x.ID_proizvoda));
             this.reportViewer1.LocalReport.DataSources.Add(ds1);
 
             this.reportViewer1.RefreshReport();

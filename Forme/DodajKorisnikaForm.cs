@@ -43,9 +43,20 @@ namespace Systemri
 
         private void NapuniComboBoxove() 
         {
+            string uloga = PrijavljeniKorisnik.VratiUlogu();
             foreach (Uloga item in DBRepository.DohvatiUloge()) 
             {
-                comboBoxUloga.Items.Add(item.ToString());
+                if (uloga == "Upravitelj") 
+                {
+                    if (item.Naziv_uloge != "Administrator" && item.Naziv_uloge != "Upravitelj") 
+                    {
+                        comboBoxUloga.Items.Add(item);
+                    }
+                }
+                else if(item.Naziv_uloge != "Administrator")
+                {
+                    comboBoxUloga.Items.Add(item);
+                }
             }
         }
 
@@ -165,7 +176,12 @@ namespace Systemri
                             {
                                 MessageBox.Show("Korisnicko ime vec postoji!");
                             }
-                        } 
+                        }
+                        else
+                        {
+                            DBRepository.IzmijeniKorisnika(stariKorisnik, noviKorisnik);
+                            Close();
+                        }
                    }
                    else if(buttonDodaj.Text == "Dodaj korisnika")
                    {

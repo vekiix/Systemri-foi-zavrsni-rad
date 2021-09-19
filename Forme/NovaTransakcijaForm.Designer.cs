@@ -29,12 +29,12 @@ namespace Systemri
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxPretrazivanje = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDodajJedinicu = new System.Windows.Forms.Button();
@@ -43,12 +43,12 @@ namespace Systemri
             this.buttonObrisiVise = new System.Windows.Forms.Button();
             this.buttonIzvrsiTransakciju = new System.Windows.Forms.Button();
             this.panelStavke = new System.Windows.Forms.Panel();
+            this.dataGridViewRacun = new System.Windows.Forms.DataGridView();
             this.labelUkupno = new System.Windows.Forms.Label();
             this.dataGridViewProizvodi = new System.Windows.Forms.DataGridView();
-            this.dataGridViewRacun = new System.Windows.Forms.DataGridView();
             this.panelStavke.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPretrazivanje
@@ -120,7 +120,7 @@ namespace Systemri
             this.buttonObrisiJedinicu.Name = "buttonObrisiJedinicu";
             this.buttonObrisiJedinicu.Size = new System.Drawing.Size(144, 37);
             this.buttonObrisiJedinicu.TabIndex = 18;
-            this.buttonObrisiJedinicu.Text = "[F5] Obriši jedinicu proizvoda";
+            this.buttonObrisiJedinicu.Text = "[F3] Obriši jedinicu proizvoda";
             this.buttonObrisiJedinicu.UseVisualStyleBackColor = false;
             this.buttonObrisiJedinicu.Click += new System.EventHandler(this.buttonObrisiJedinicu_Click);
             // 
@@ -135,7 +135,7 @@ namespace Systemri
             this.buttonObrisiVise.Name = "buttonObrisiVise";
             this.buttonObrisiVise.Size = new System.Drawing.Size(144, 37);
             this.buttonObrisiVise.TabIndex = 19;
-            this.buttonObrisiVise.Text = "[F6] Obriši stavku";
+            this.buttonObrisiVise.Text = "[F4] Obriši stavku";
             this.buttonObrisiVise.UseVisualStyleBackColor = false;
             this.buttonObrisiVise.Click += new System.EventHandler(this.buttonObrisiVise_Click);
             // 
@@ -150,7 +150,7 @@ namespace Systemri
             this.buttonIzvrsiTransakciju.Name = "buttonIzvrsiTransakciju";
             this.buttonIzvrsiTransakciju.Size = new System.Drawing.Size(144, 53);
             this.buttonIzvrsiTransakciju.TabIndex = 20;
-            this.buttonIzvrsiTransakciju.Text = "[F8] Izvrši transakciju";
+            this.buttonIzvrsiTransakciju.Text = "[F5] Izvrši transakciju";
             this.buttonIzvrsiTransakciju.UseVisualStyleBackColor = false;
             this.buttonIzvrsiTransakciju.Click += new System.EventHandler(this.buttonIzvrsiTransakciju_Click);
             // 
@@ -169,8 +169,53 @@ namespace Systemri
             this.panelStavke.Size = new System.Drawing.Size(1044, 289);
             this.panelStavke.TabIndex = 16;
             // 
+            // dataGridViewRacun
+            // 
+            this.dataGridViewRacun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRacun.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRacun.BackgroundColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRacun.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewRacun.ColumnHeadersHeight = 50;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Nirmala UI", 11.25F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRacun.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewRacun.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewRacun.EnableHeadersVisualStyles = false;
+            this.dataGridViewRacun.Location = new System.Drawing.Point(26, 55);
+            this.dataGridViewRacun.Name = "dataGridViewRacun";
+            this.dataGridViewRacun.ReadOnly = true;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRacun.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewRacun.RowTemplate.Height = 30;
+            this.dataGridViewRacun.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRacun.Size = new System.Drawing.Size(801, 210);
+            this.dataGridViewRacun.TabIndex = 24;
+            this.dataGridViewRacun.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRacun_CellFormatting);
+            // 
             // labelUkupno
             // 
+            this.labelUkupno.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUkupno.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUkupno.ForeColor = System.Drawing.Color.White;
             this.labelUkupno.Location = new System.Drawing.Point(26, 20);
@@ -185,83 +230,40 @@ namespace Systemri
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewProizvodi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProizvodi.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProizvodi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProizvodi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewProizvodi.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Nirmala UI", 11.25F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProizvodi.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Nirmala UI", 11.25F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProizvodi.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewProizvodi.EnableHeadersVisualStyles = false;
             this.dataGridViewProizvodi.Location = new System.Drawing.Point(26, 100);
             this.dataGridViewProizvodi.Name = "dataGridViewProizvodi";
             this.dataGridViewProizvodi.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProizvodi.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProizvodi.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewProizvodi.RowTemplate.Height = 30;
             this.dataGridViewProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProizvodi.Size = new System.Drawing.Size(801, 247);
             this.dataGridViewProizvodi.TabIndex = 15;
             this.dataGridViewProizvodi.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewProizvodi_CellFormatting);
-            // 
-            // dataGridViewRacun
-            // 
-            this.dataGridViewRacun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewRacun.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRacun.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewRacun.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewRacun.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Nirmala UI", 11.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewRacun.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewRacun.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewRacun.EnableHeadersVisualStyles = false;
-            this.dataGridViewRacun.Location = new System.Drawing.Point(26, 55);
-            this.dataGridViewRacun.Name = "dataGridViewRacun";
-            this.dataGridViewRacun.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewRacun.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewRacun.RowTemplate.Height = 30;
-            this.dataGridViewRacun.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRacun.Size = new System.Drawing.Size(801, 210);
-            this.dataGridViewRacun.TabIndex = 24;
-            this.dataGridViewRacun.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRacun_CellFormatting);
             // 
             // NovaTransakcijaForm
             // 
@@ -279,8 +281,8 @@ namespace Systemri
             this.Text = "TransakcijaForm";
             this.Load += new System.EventHandler(this.NovaTransakcijaForm_Load);
             this.panelStavke.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRacun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProizvodi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

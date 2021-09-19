@@ -70,7 +70,7 @@ namespace Systemri
         private void OsvjeziDGVRacun() 
         {
             dataGridViewRacun.DataSource = racun.ToList();
-            panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73), -koeficijent);
+            panelStavke.BackColor = UpravljanjeGlavnomFormom.ChangeColorBrightness(Color.FromArgb(46, 51, 73),(koeficijent>0.30)?-0.30:-koeficijent);
             labelUkupno.Text = Math.Round(ukupno,2).ToString() + " kn";            
         }
 
@@ -103,7 +103,7 @@ namespace Systemri
             if (e.ColumnIndex == 3)
             {
                 int temp = int.Parse(dataGridViewProizvodi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                if (temp == 0) e.CellStyle.BackColor = Color.PaleVioletRed;
+                if (temp == 0) { e.CellStyle.BackColor = Color.PaleVioletRed; e.CellStyle.SelectionBackColor = Color.PaleVioletRed; }
             }
             if (e.ColumnIndex == 5)
             {
@@ -142,6 +142,7 @@ namespace Systemri
                             if (rez == DialogResult.OK)
                             {
                                 UpravljanjePodacima.DodajNaRacun(odabrani, racun, form.kolicina);
+                                
                                 ukupno += Math.Round(odabrani.Postotak_popusta != null ? (double)(odabrani.Cijena_proizvoda * (1- odabrani.Postotak_popusta))*form.kolicina : (double)odabrani.Cijena_proizvoda, 2);
                                 koeficijent += (0.01 * form.kolicina);
                                 OsvjeziDGVProizvodi();
@@ -186,7 +187,6 @@ namespace Systemri
                     }
                     else
                     {
-                        MessageBox.Show("Brisem!");
                         racun.Remove(odabrani);
                     }
                     UpravljanjePodacima.DodajJedanProizodaNaProizvode(proizvodi, odabrani);
@@ -262,16 +262,15 @@ namespace Systemri
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            switch (keyData) 
+            switch (keyData)
             {
-                case Keys.F1: buttonDodajJedinicu.PerformClick();break;
-                case Keys.F2: buttonDodajVise.PerformClick();break;
-                case Keys.F5: buttonObrisiJedinicu.PerformClick();break;
-                case Keys.F6: buttonObrisiVise.PerformClick(); break;
-                case Keys.F8: buttonIzvrsiTransakciju.PerformClick();break;
+                case Keys.F1: buttonDodajJedinicu.PerformClick(); return true;
+                case Keys.F2: buttonDodajVise.PerformClick(); return true;
+                case Keys.F3: buttonObrisiJedinicu.PerformClick();return true;
+                case Keys.F4: buttonObrisiVise.PerformClick(); return true;
+                case Keys.F5: buttonIzvrsiTransakciju.PerformClick(); return true;
                 default: break;
             }
-            
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
